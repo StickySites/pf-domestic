@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — verified against the live site's Elementor global palette
+  (token parity pass, pfdomesticsolutions.com):
+    accent  #f8b427   navy #334155   ink #111111
+    band    #F0F5FA   body #7A7A7A   border #D1D5DB   blue #046bd2
+  Fonts: Roboto (primary/body), Roboto Slab (secondary/headings).
+*/
+
+@theme {
+  --color-navy: #334155;
+  --color-navy-dark: #26303f;
+  --color-ink: #111111;
+  --color-body: #4b5563;
+  --color-muted: #7a7a7a;
+  --color-accent: #f8b427;
+  --color-accent-hover: #e0a11e;
+  --color-band: #f0f5fa;
+  --color-line: #d1d5db;
+  --color-blue: #046bd2;
+
+  --font-sans: var(--font-roboto), Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-roboto-slab), Georgia, serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-ink);
+}
