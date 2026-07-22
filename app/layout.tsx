@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Roboto, Roboto_Slab } from "next/font/google";
+import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
+import { CookieConsentInit } from "@/components/analytics/cookie-consent-init";
+import { GoogleAnalytics } from "@/components/analytics/google-analytics";
+import { MetaPixel } from "@/components/analytics/meta-pixel";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -10,10 +13,10 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const robotoSlab = Roboto_Slab({
-  variable: "--font-roboto-slab",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -43,11 +46,16 @@ export default function RootLayout({
     <html
       lang="en-GB"
       data-scroll-behavior="smooth"
-      className={`${roboto.variable} ${robotoSlab.variable} h-full`}
+      className={`${roboto.variable} ${poppins.variable} h-full`}
     >
       {/* Chrome lives in the route-group layouts: app/(site) renders the full site
           header and footer; app/(landing) renders a distraction-free variant. */}
-      <body className="min-h-full flex flex-col bg-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-white">
+        {children}
+        <CookieConsentInit />
+        <GoogleAnalytics />
+        <MetaPixel />
+      </body>
     </html>
   );
 }

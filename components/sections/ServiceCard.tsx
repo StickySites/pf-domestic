@@ -28,7 +28,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         </p>
         <Link
           href={`/${service.slug}`}
-          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent"
+          className="mt-4 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-wide text-ink transition-colors hover:text-accent"
         >
           Learn More
           <span aria-hidden="true">→</span>

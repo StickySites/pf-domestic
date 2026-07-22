@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/sections/PageHeader";
 import ServicesGrid from "@/components/sections/ServicesGrid";
+import CostEstimatorStrip from "@/components/sections/CostEstimatorStrip";
 import ContactStrip from "@/components/sections/ContactStrip";
 import { buildingServices } from "@/lib/data";
 
@@ -18,6 +19,7 @@ export default function Page() {
         intro={buildingServices.intro}
       />
       <ServicesGrid heading="Our Services" />
+      <CostEstimatorStrip />
       <ContactStrip />
     </>
   );

@@ -44,7 +44,7 @@ export default function PostList() {
                   href={post.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-navy hover:text-accent"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-wide text-ink hover:text-accent"
                 >
                   Read More
                   <span aria-hidden="true">→</span>

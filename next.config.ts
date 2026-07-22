@@ -2,8 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Images are bundled in /public/images. remotePatterns stays as a hotlink
-    // fallback for any asset that is not bundled locally.
+    // Local assets live under /public (Job-Photos, Site-Images, Brand-Assets, etc.).
+    // remotePatterns stays as a hotlink fallback for any asset not bundled locally.
     remotePatterns: [
       {
         protocol: "https",

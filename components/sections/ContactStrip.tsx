@@ -6,7 +6,7 @@ import { site } from "@/lib/data";
 export default function ContactStrip() {
   return (
     <section className="bg-accent text-ink">
-      <Container className="flex flex-col items-center justify-between gap-4 py-8 text-center sm:flex-row sm:text-left">
+      <Container className="flex flex-col items-center justify-center gap-4 py-8 text-center sm:flex-row sm:gap-10 sm:text-left">
         <h2 className="text-xl font-bold sm:text-2xl">
           Contact Us For a Free Quote:
         </h2>

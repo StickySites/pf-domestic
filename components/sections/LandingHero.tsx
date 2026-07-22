@@ -5,53 +5,58 @@ import { landingOxford, images } from "@/lib/data";
 
 export default function LandingHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-navy">
-      <Image
-        src={images.extension}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover opacity-25"
+    <section className="relative isolate flex min-h-[58vh] items-center overflow-hidden bg-navy-dark sm:min-h-[65vh] md:min-h-[72vh] lg:min-h-[80vh]">
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src={images.extension}
+          alt="Finished rendered house extension with bifold doors by P&F Domestic Solutions"
+          fill
+          priority
+          sizes="100vw"
+          className="hero-ken-burns object-cover object-[60%_38%] sm:object-[55%_35%] md:object-[52%_center] lg:object-center"
+        />
+      </div>
+      {/* Mobile: full-width bottom→top darken for readable copy over white render */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-navy-dark/92 via-navy-dark/74 to-navy-dark/50 md:hidden"
+        aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-navy/75" />
-      <Container className="relative py-20 sm:py-28">
+      {/* md+: L→R scrim + light bottom vignette — shows more photo colour */}
+      <div
+        className="absolute inset-0 hidden bg-gradient-to-r from-navy-dark/92 via-navy-dark/55 to-navy-dark/15 md:block"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 hidden bg-gradient-to-t from-navy-dark/50 via-transparent to-navy-dark/25 md:block"
+        aria-hidden="true"
+      />
+
+      <Container className="relative py-10 sm:py-14 md:py-20 lg:py-24">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          <p className="hero-enter text-xs font-semibold uppercase tracking-[0.18em] text-accent sm:text-sm">
             {landingOxford.kicker}
           </p>
-          <h1 className="mt-3 text-4xl font-bold leading-tight text-white sm:text-5xl">
+          <h1 className="hero-enter hero-enter-delay-1 mt-2 text-3xl font-bold leading-tight !text-white sm:mt-3 sm:text-4xl md:text-5xl">
             {landingOxford.heading}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-white/85">
+          <span className="hero-accent-line" aria-hidden="true" />
+          <p className="hero-enter hero-enter-delay-2 mt-4 max-w-2xl text-base text-white/90 sm:mt-6 sm:text-lg">
             {landingOxford.strapline}
           </p>
-
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-            {landingOxford.usps.map((usp) => (
-              <li
-                key={usp}
-                className="flex items-center gap-2 text-sm font-semibold text-white"
-              >
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  className="h-5 w-5 text-accent"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.86-9.71a.75.75 0 0 0-1.22-.87l-3.24 4.53-1.62-1.62a.75.75 0 1 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.1l3.75-5.25Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+          <p className="hero-enter hero-enter-delay-3 mt-3 max-w-2xl text-sm leading-relaxed text-white/75 sm:mt-4">
+            {landingOxford.usps.map((usp, i) => (
+              <span key={usp} className="block sm:inline">
+                {i > 0 && <span className="hidden sm:inline"> · </span>}
                 {usp}
-              </li>
+              </span>
             ))}
-          </ul>
-
-          <div className="mt-10">
-            <Button href={landingOxford.cta.href} variant="solid">
+          </p>
+          <div className="hero-enter hero-enter-delay-4 mt-6 sm:mt-8 md:mt-10">
+            <Button
+              href={landingOxford.cta.href}
+              variant="solid"
+              className="w-full sm:w-auto"
+            >
               {landingOxford.cta.label}
             </Button>
           </div>

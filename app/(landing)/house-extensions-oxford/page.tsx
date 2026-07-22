@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/primitives/Container";
 import LandingHero from "@/components/sections/LandingHero";
+import CostEstimator from "@/components/sections/CostEstimator";
 import ContactForm from "@/components/sections/ContactForm";
 import ReviewsStrip from "@/components/sections/ReviewsStrip";
 import { landingOxford } from "@/lib/data";
@@ -38,11 +39,18 @@ export default function Page() {
         </Container>
       </section>
 
-      <ContactForm
-        heading={landingOxford.form.heading}
-        subheading={landingOxford.form.subheading}
-        showImage={false}
+      <CostEstimator
+        ctaHref="#get-a-quote"
+        ctaLabel="Get a Formal Quote"
       />
+
+      <div id="get-a-quote">
+        <ContactForm
+          heading={landingOxford.form.heading}
+          subheading={landingOxford.form.subheading}
+          showImage={false}
+        />
+      </div>
 
       <ReviewsStrip heading={landingOxford.reviewsHeading} />
     </>

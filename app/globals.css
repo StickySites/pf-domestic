@@ -1,32 +1,63 @@
 @import "tailwindcss";
 
 /*
-  Design tokens — verified against the live site's Elementor global palette
-  (token parity pass, pfdomesticsolutions.com):
-    accent  #f8b427   navy #334155   ink #111111
-    band    #F0F5FA   body #7A7A7A   border #D1D5DB   blue #046bd2
-  Fonts: Roboto (primary/body), Roboto Slab (secondary/headings).
+  Design tokens — P&F Domestic Solutions Brand Guidelines v1.1 (21 July 2026):
+    Brand Gold #F5AC1C · Brand Black #231F20 · White #FFFFFF
+    Navy #334155 · Navy Dark #26303F (structural chrome only)
+    Body Grey #4B5563 · Muted Grey #7A7A7A · Line Grey #D1D5DB · Light Band #F0F5FA
+  Typography: Poppins (headings 600–700), Roboto (body/UI 400–500).
+  Header stays white; footer uses navy / navy-dark.
 */
 
 @theme {
   --color-navy: #334155;
   --color-navy-dark: #26303f;
-  --color-ink: #111111;
+  /* Semantic aliases for charcoal chrome (header/footer) */
+  --color-charcoal: #334155;
+  --color-charcoal-deep: #26303f;
+  --color-ink: #231f20;
   --color-body: #4b5563;
   --color-muted: #7a7a7a;
-  --color-accent: #f8b427;
-  --color-accent-hover: #e0a11e;
+  --color-accent: #f5ac1c;
+  --color-accent-hover: #dc9a19;
   --color-band: #f0f5fa;
   --color-line: #d1d5db;
-  --color-blue: #046bd2;
 
   --font-sans: var(--font-roboto), Arial, Helvetica, sans-serif;
-  --font-heading: var(--font-roboto-slab), Georgia, serif;
+  --font-heading: var(--font-poppins), Arial, Helvetica, sans-serif;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #111111;
+  --foreground: #231f20;
+
+  /* vanilla-cookieconsent brand overrides (P&F gold + charcoal) */
+  --cc-bg: #26303f;
+  --cc-primary-color: #ffffff;
+  --cc-secondary-color: rgba(255, 255, 255, 0.7);
+  --cc-font-family: var(--font-sans);
+  --cc-link-color: #f5ac1c;
+  --cc-btn-primary-bg: #f5ac1c;
+  --cc-btn-primary-color: #231f20;
+  --cc-btn-primary-border-color: #f5ac1c;
+  --cc-btn-primary-hover-bg: #dc9a19;
+  --cc-btn-primary-hover-color: #231f20;
+  --cc-btn-primary-hover-border-color: #dc9a19;
+  --cc-btn-secondary-bg: transparent;
+  --cc-btn-secondary-color: #ffffff;
+  --cc-btn-secondary-border-color: rgba(255, 255, 255, 0.3);
+  --cc-btn-secondary-hover-bg: rgba(255, 255, 255, 0.1);
+  --cc-btn-secondary-hover-color: #ffffff;
+  --cc-btn-secondary-hover-border-color: rgba(255, 255, 255, 0.5);
+  --cc-toggle-on-bg: #f5ac1c;
+  --cc-toggle-on-knob-bg: #231f20;
+  --cc-toggle-off-bg: #4b5563;
+  --cc-toggle-off-knob-bg: #ffffff;
+  --cc-cookie-category-block-bg: #334155;
+  --cc-cookie-category-block-border: rgba(255, 255, 255, 0.1);
+  --cc-cookie-category-expanded-block-bg: #334155;
+  --cc-overlay-bg: rgba(38, 48, 63, 0.85);
+  --cc-z-index: 9999;
 }
 
 html {
@@ -37,6 +68,8 @@ body {
   background: var(--background);
   color: var(--color-body);
   font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -45,5 +78,97 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
+}
+
+/* ---- Hero motion (Home + Landing only) ---- */
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.85rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Ken Burns only from tablet up — avoids busy zoom on small phones */
+.hero-ken-burns {
+  will-change: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-ken-burns {
+    animation: hero-ken-burns 12s ease-out forwards;
+    will-change: transform;
+  }
+}
+
+.hero-enter {
+  animation: hero-fade-up 0.75s ease-out both;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 0.26s;
+}
+
+.hero-enter-delay-3 {
+  animation-delay: 0.4s;
+}
+
+.hero-enter-delay-4 {
+  animation-delay: 0.52s;
+}
+
+.hero-accent-line {
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: 1.25rem;
+  background: var(--color-accent);
+  transform-origin: left center;
+  animation: hero-underline 0.7s ease-out 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns,
+  .hero-enter,
+  .hero-accent-line {
+    animation: none;
+  }
+
+  .hero-enter {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-accent-line {
+    transform: none;
+  }
 }

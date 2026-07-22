@@ -1,4 +1,5 @@
 import Container from "@/components/primitives/Container";
+import { ManageCookiesButton } from "@/components/analytics/manage-cookies-button";
 import { site } from "@/lib/data";
 
 // Minimal footer for Ads landing pages: contact details and legal line only — no
@@ -10,13 +11,17 @@ export default function LandingFooter() {
         <p>
           © {new Date().getFullYear()} {site.name}. All rights reserved.
         </p>
-        <p className="flex flex-col gap-1 sm:flex-row sm:gap-4">
+        <p className="flex flex-col gap-1 sm:items-end sm:flex-row sm:gap-4">
           <a href={site.phoneHref} className="hover:text-accent">
             {site.phoneDisplay}
           </a>
           <a href={`mailto:${site.email}`} className="hover:text-accent">
             {site.email}
           </a>
+          <ManageCookiesButton
+            className="hover:text-accent"
+            label="Cookie preferences"
+          />
         </p>
       </Container>
     </footer>

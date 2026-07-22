@@ -23,7 +23,7 @@ function Field({ id, type = "text", inputMode }: FieldProps) {
       <label htmlFor={id} className="mb-1 block text-sm font-medium text-ink">
         {field.label}
         {field.required && (
-          <span aria-hidden="true" className="ml-0.5 text-accent">
+          <span aria-hidden="true" className="ml-0.5 text-ink">
             *
           </span>
         )}
@@ -104,7 +104,7 @@ export default function ContactForm({
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-ink">{heading}</h2>
               {subheading && (
-                <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-accent">
+                <p className="mt-1 text-sm font-medium uppercase tracking-wide text-muted">
                   {subheading}
                 </p>
               )}

@@ -23,7 +23,7 @@ export default function AreasGrid() {
                 {town.href && (
                   <Link
                     href={town.href}
-                    className="mt-2 inline-flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-navy hover:text-accent"
+                    className="mt-2 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-wide text-ink hover:text-accent"
                   >
                     View area
                     <span aria-hidden="true">→</span>

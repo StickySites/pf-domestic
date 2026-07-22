@@ -1,5 +1,6 @@
 // Central content store — reproduced from pfdomesticsolutions.com (WordPress/Elementor).
-// Images are bundled locally in /public/images (downloaded from the live WP uploads folder).
+// Imagery: real job photos under /Job-Photos, stock under /Stock-Marketing-Images,
+// legacy WP thumbs under /Site-Images (kept where still useful), brand under /Brand-Assets.
 // remotePatterns for pfdomesticsolutions.com stays configured as a hotlink fallback.
 
 export const site = {
@@ -12,23 +13,38 @@ export const site = {
   facebook:
     "https://www.facebook.com/people/PF-Domestic-Solutions-LTD/61550506768914/",
   instagram: "https://www.instagram.com/pf_domestic_solutions/",
+  /** Derived from site.phone (+44 7943 343969 → 447943343969). */
+  whatsapp: "https://wa.me/447943343969",
 };
 
 export const images = {
-  logo: "/logo.png",
-  home: "/images/home.webp",
-  refurb: "/images/refurb.webp",
-  kitchen: "/images/kitchen.webp",
-  loft: "/images/loft.webp",
-  extension: "/images/extension.webp",
-  garage: "/images/garage.webp",
-  garden: "/images/garden.png",
-  doors: "/images/doors.webp",
-  about: "/images/about.jpg",
-  contact: "/images/contact.jpg",
-  banner: "/images/banner.jpeg",
-  oxford: "/images/oxford.png",
-  news: "/images/news.png",
+  /** Full wordmark — dark + gold on transparent; for light/white chrome (header). */
+  logo: "/Brand-Assets/Logo-Files/logo.png",
+  /** Icon mark — light + gold on transparent; for dark/charcoal chrome (footer). */
+  logoOnDark: "/Brand-Assets/Logo-Files/PF-Logo-Dark-Transparent.png",
+  /** Homepage hero — finished garden room lit at dusk. */
+  home: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
+  /** House refurbishments — atmospheric hallway renovation stock. */
+  refurb: "/Stock-Marketing-Images/Stock-Hallway-Staircase-Renovation.webp",
+  kitchen:
+    "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View1.jpeg",
+  /** No loft job photos yet — loft bedroom stock. */
+  loft: "/Stock-Marketing-Images/Stock-Loft-Bedroom-Interior.webp",
+  extension:
+    "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-01.jpeg",
+  garage:
+    "/Job-Photos/Garage-Conversion/Garage-Conversion-Interior-White-Loft-Room.webp",
+  garden:
+    "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
+  doors:
+    "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
+  about: "/Site-Images/about.jpg",
+  contact: "/Site-Images/contact.jpg",
+  /** CTA band background — finished garden room at dusk. */
+  banner:
+    "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
+  oxford: "/Site-Images/oxford.png",
+  news: "/Site-Images/news.png",
 };
 
 export type Service = {
@@ -547,7 +563,7 @@ export const navAreas = areas
     href: `/${a.slug}`,
   }));
 
-// Primary navigation (header + footer share the source of truth)
+// Primary navigation (header uses primary; footer uses footer)
 export const nav = {
   primary: [
     { label: "Home", href: "/" },
@@ -557,21 +573,24 @@ export const nav = {
       children: navServices,
     },
     { label: "Areas We Cover", href: "/areas", children: navAreas },
-    { label: "FAQs", href: "/faqs" },
     { label: "About", href: "/about" },
     { label: "Project Gallery", href: "/project-gallery" },
-    { label: "Latest From Us", href: "/latest-from-us" },
-    { label: "Contact Us", href: "/contact-us" },
   ],
-  footer: [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "News", href: "/latest-from-us" },
-    { label: "Project Gallery", href: "/project-gallery" },
-    { label: "FAQs", href: "/faqs" },
-    { label: "Contact", href: "/contact-us" },
-    { label: "Cookie Policy (UK)", href: "/cookie-policy-uk" },
-  ],
+  footer: {
+    explore: [
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
+      { label: "Latest News", href: "/latest-from-us" },
+      { label: "Project Gallery", href: "/project-gallery" },
+      { label: "Cost Estimator", href: "/project-cost-estimator" },
+      { label: "FAQs", href: "/faqs" },
+    ],
+    policies: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Cookie Policy (UK)", href: "/cookie-policy-uk" },
+    ],
+    contact: [{ label: "Contact Page", href: "/contact-us" }],
+  },
 };
 
 // ---- Page-level copy (transcribed verbatim from the live site) ----
@@ -679,28 +698,163 @@ export const contact = {
   redirectTo: "/thank-you",
 };
 
+export type GalleryProject = {
+  title: string;
+  image: string;
+  /** Descriptive alt; defaults to title in the grid. */
+  alt?: string;
+};
+
 export const gallery = {
   heading: "Project Gallery",
   intro:
     "Take a look at some of our previous works. Contact us today to find out what we can do for you.",
   address: site.address,
+  // Curated finished (or near-finished) job photos — not every site snap or video.
   projects: [
     {
+      title: "House Extension",
+      image:
+        "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-01.jpeg",
+      alt: "Finished rendered house extension exterior",
+    },
+    {
+      title: "House Extension",
+      image:
+        "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-02.jpeg",
+      alt: "Rendered house extension rear elevation",
+    },
+    {
+      title: "Extension Interior",
+      image:
+        "/Job-Photos/House-Extension-Build/Extension-Interior-Open-Plan-Skylight.jpeg",
+      alt: "Open-plan house extension interior with skylight",
+    },
+    {
+      title: "Extension Flat Roof",
+      image:
+        "/Job-Photos/House-Extension-Build/Extension-Flat-Roof-Finished-Gutter-View.jpeg",
+      alt: "Finished flat roof and gutter on house extension",
+    },
+    {
+      title: "Extension Fit-Out",
+      image:
+        "/Job-Photos/Extension-Interior-Fit-Out/Flooring-Transition-Garden-Doors.jpeg",
+      alt: "Flooring transition to garden doors in extension fit-out",
+    },
+    {
+      title: "Extension Fit-Out",
+      image:
+        "/Job-Photos/Extension-Interior-Fit-Out/Interior-Plastered-Room-Bay-Window.jpeg",
+      alt: "Plastered extension room with bay window",
+    },
+    {
       title: "Garden Room",
-      image: images.garden,
-      href: "https://pfdomesticsolutions.com/project-gallery/",
+      image:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
+      alt: "Finished garden room with painted cladding",
+    },
+    {
+      title: "Garden Room",
+      image:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Front-Bifolds.jpeg",
+      alt: "Garden room exterior with bifold doors",
+    },
+    {
+      title: "Garden Room",
+      image:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
+      alt: "Garden room French doors lit in the evening",
+    },
+    {
+      title: "Garden Room",
+      image:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
+      alt: "Garden room exterior lit in the evening",
+    },
+    {
+      title: "Garden Room Interior",
+      image:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Interior-Empty-LED-Lighting.jpeg",
+      alt: "Garden room interior with LED lighting",
+    },
+    {
+      title: "Kitchen Renovation",
+      image:
+        "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View1.jpeg",
+      alt: "Cream shaker kitchen renovation",
+    },
+    {
+      title: "Kitchen Renovation",
+      image:
+        "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View2.jpeg",
+      alt: "Cream shaker kitchen renovation, second view",
+    },
+    {
+      title: "Ensuite Bathroom",
+      image:
+        "/Job-Photos/Bathroom-Renovation-Other/Ensuite-Shower-Room-Renovation.jpeg",
+      alt: "Ensuite shower room renovation",
+    },
+    {
+      title: "Wet Room Bathroom",
+      image:
+        "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Grab-Rails-View1.jpeg",
+      alt: "Accessible wet room shower with grab rails",
+    },
+    {
+      title: "Wet Room Bathroom",
+      image:
+        "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Sink-View.jpeg",
+      alt: "Accessible wet room shower and sink",
+    },
+    {
+      title: "Wet Room Bathroom",
+      image:
+        "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Bathroom-Heated-Towel-Rail.jpeg",
+      alt: "Accessible bathroom with heated towel rail",
+    },
+    {
+      title: "Garage Conversion",
+      image:
+        "/Job-Photos/Garage-Conversion/Garage-Conversion-Interior-White-Loft-Room.webp",
+      alt: "Garage conversion interior living space",
+    },
+    {
+      title: "Garden Landscaping",
+      image:
+        "/Job-Photos/Garden-Landscaping/Garden-Lawn-Hedge-Path-Bollard-Lights-01.jpeg",
+      alt: "Garden lawn, hedge path and bollard lights",
+    },
+    {
+      title: "Garden Landscaping",
+      image:
+        "/Job-Photos/Garden-Landscaping/Garden-Fence-Border-Planting-Wide.jpeg",
+      alt: "Garden fence border planting",
+    },
+    {
+      title: "Garden Landscaping",
+      image:
+        "/Job-Photos/Garden-Landscaping/Garden-Gravel-Path-Pool-Steps.jpeg",
+      alt: "Garden gravel path and pool steps",
+    },
+    {
+      title: "Bespoke Joinery",
+      image: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View1.jpeg",
+      alt: "Bespoke storage bench joinery",
+    },
+    {
+      title: "Exterior Brick Painting",
+      image:
+        "/Job-Photos/Exterior-Brick-Painting/Painted-Brick-Side-Return-Rear-View.jpeg",
+      alt: "Painted brick side return exterior",
     },
     {
       title: "Oxford Extension Project",
       image: images.oxford,
-      href: "https://pfdomesticsolutions.com/project-gallery/",
+      alt: "Oxford extension project",
     },
-    {
-      title: "Paul's House",
-      image: images.home,
-      href: "https://pfdomesticsolutions.com/project-gallery/",
-    },
-  ],
+  ] satisfies GalleryProject[],
 };
 
 export const areasHub = {
@@ -727,32 +881,102 @@ export const thankYou = {
   cta: { label: "Back to Home", href: "/" },
 };
 
+// Concise UK GDPR / Data Protection Act 2018 policy for a marketing site with a
+// contact/quote form. Update when analytics, a consent banner, or a form backend
+// (e.g. Resend) is introduced.
+export const privacyPolicy = {
+  heading: "Privacy Policy",
+  intro:
+    "This privacy policy explains how P&F Domestic Solutions collects, uses and looks after personal information when you use this website or contact us. It applies to visitors and enquirers in the United Kingdom.",
+  sections: [
+    {
+      heading: "Who we are",
+      body: [
+        "P&F Domestic Solutions (“we”, “us” or “our”) is the data controller for personal information collected through this website. We provide building and construction services across London and the Home Counties.",
+        "Our contact details are at the end of this policy. If you have any questions about how we handle your data, please get in touch.",
+      ],
+    },
+    {
+      heading: "What information we collect",
+      body: [
+        "When you use our contact or quote form, we ask for your first name, phone number, email address and any comments you choose to include about your enquiry. You may also opt in to our newsletter.",
+        "We may also receive personal information if you contact us by phone, email or social media. Server and hosting logs may record technical details such as your IP address and browser type when you visit the site; these are used only to operate and secure the website.",
+      ],
+    },
+    {
+      heading: "How we use your information",
+      body: [
+        "We use enquiry details to respond to your request, provide a quote where appropriate, and manage follow-up conversations about our services. If you opt in to the newsletter, we use your email to send occasional updates; you can unsubscribe at any time.",
+        "We do not sell your personal information. We only share it where needed to run the website or respond to you (for example with a trusted email or hosting provider), or where the law requires us to.",
+      ],
+    },
+    {
+      heading: "Legal basis",
+      body: [
+        "We process enquiry data because it is necessary to take steps at your request before entering into a contract, or because we have a legitimate interest in responding to business enquiries and operating this website. Where you opt in to marketing, we rely on your consent, which you may withdraw at any time.",
+      ],
+    },
+    {
+      heading: "Cookies and third-party content",
+      body: [
+        "This website does not currently set analytics, advertising or tracking cookies of its own. Some pages embed a Google Map, which may set cookies under Google’s own policies. For more detail, see our Cookie Policy (UK).",
+      ],
+    },
+    {
+      heading: "How long we keep your information",
+      body: [
+        "We keep enquiry and correspondence records for as long as needed to deal with your request and for a reasonable period afterwards (typically up to 24 months), unless a longer period is required for legal, accounting or ongoing project reasons. Marketing contacts are retained until you unsubscribe or ask us to delete them.",
+      ],
+    },
+    {
+      heading: "Your rights",
+      body: [
+        "Under UK data protection law you have rights including access to your personal data, correction of inaccurate data, erasure in certain circumstances, restriction of processing, objection to processing based on legitimate interests, and data portability where applicable. Where processing is based on consent, you may withdraw that consent at any time.",
+        "To exercise these rights, please contact us using the details below. If you are unhappy with how we handle your data you can also complain to the Information Commissioner’s Office (ICO).",
+      ],
+    },
+  ],
+  contactHeading: "Contact details",
+  contactBody:
+    "For questions about this Privacy Policy or to exercise your data protection rights, please contact us:",
+};
+
 // Placeholder pending a consent-management solution (Stage 7 backlog). The live WP
 // policy is generated by CookieYes and documents WordPress/Elementor/Google Analytics
 // cookies plus a consent pop-up — none of which exist in this build, so reproducing it
 // verbatim would be inaccurate. Replace this wholesale when the banner is wired up.
+// Keep category descriptions in sync with lib/cookie-consent/config.ts.
 export const cookiePolicy = {
   heading: "Cookie Policy (UK)",
+  lastUpdated: "21 July 2026",
   intro:
-    "This policy explains how cookies are used on this website and applies to citizens and legal permanent residents of the United Kingdom.",
+    "This policy explains how P&F Domestic Solutions uses cookies and similar technologies on this website, and the choices available to you. It applies to citizens and legal permanent residents of the United Kingdom, and should be read alongside our Privacy Policy.",
   sections: [
     {
       heading: "What are cookies?",
       body: [
-        "A cookie is a small simple file that is sent along with pages of this website and stored by your browser on the hard drive of your computer or another device. The information stored therein may be returned to our servers or to the servers of the relevant third parties during a subsequent visit.",
+        "Cookies are small text files placed on your device when you visit a website. They are widely used to make sites work, work more efficiently, and to provide reporting information to the site owner.",
       ],
     },
     {
-      heading: "Cookies on this site",
+      heading: "Cookies we use",
       body: [
-        "This website is a static site and does not currently set analytics, advertising or tracking cookies of its own. Pages that embed a Google Map load content from Google, which may set cookies under Google’s own policies.",
-        "A full cookie inventory and a consent management tool are being prepared and this policy will be updated to reflect them before any non-essential cookies are introduced.",
+        "Strictly necessary — cookies required for the site’s core functionality, such as remembering your cookie preferences. These can’t be switched off without affecting how the site works.",
+        "Analytics — when enabled, we use Google Analytics (GA4) to understand how visitors use the site: pages viewed, time on page, referral source, approximate location, and device/browser type. This helps us improve the site over time.",
+        "Advertising — when enabled, we use the Meta Pixel to understand how visitors arrive from Meta platforms (Facebook/Instagram) and to measure the performance of any advertising campaigns we run.",
+        "Analytics and advertising cookies are only active where the relevant tracking IDs are configured, and only once you’ve given consent via the cookie banner. You can change your choice at any time using the manage preferences control on this page or in the site footer.",
       ],
     },
     {
-      heading: "Enabling, disabling and deleting cookies",
+      heading: "Third-party cookies",
       body: [
-        "You can use your internet browser to automatically or manually delete cookies. You can also specify that certain cookies may not be placed. Another option is to change the settings of your internet browser so that you receive a message each time a cookie is placed. For more information about these options, please refer to the instructions in the Help section of your browser.",
+        "Some pages embed or link to third-party services (for example Google Maps). Those services may set their own cookies under their own policies. This policy doesn’t cover their use of cookies.",
+      ],
+    },
+    {
+      heading: "Managing cookies",
+      body: [
+        "You can control or delete cookies through your browser settings at any time. Most browsers let you refuse cookies, or alert you when a cookie is being set. Blocking analytics or advertising cookies won’t stop the site working, though it does mean we won’t be able to measure how it’s used or how any campaigns are performing.",
       ],
     },
     {

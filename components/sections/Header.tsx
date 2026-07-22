@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-white shadow-sm">
-      <Container className="flex items-center justify-between gap-4 py-3">
+      <Container className="!max-w-none flex items-center justify-between gap-4 !pl-5 !pr-4 py-4 sm:!pl-6 sm:!pr-5 lg:!pl-8 lg:!pr-6">
         <Link href="/" className="flex shrink-0 items-center" aria-label={site.name}>
           <Image
             src={images.logo}
@@ -27,63 +27,65 @@ export default function Header() {
             width={1275}
             height={453}
             priority
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
-          {nav.primary.map((item) =>
-            item.children ? (
-              <div key={item.href} className="group relative">
+        {/* Desktop nav + CTA — grouped and pushed right */}
+        <div className="ml-auto hidden items-center gap-4 lg:flex">
+          <nav className="flex items-center gap-1" aria-label="Primary">
+            {nav.primary.map((item) =>
+              item.children ? (
+                <div key={item.href} className="group relative">
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-1 rounded px-3 py-2 text-base font-medium transition-colors hover:text-accent ${
+                      isActive(item.href) ? "text-accent" : "text-navy"
+                    }`}
+                  >
+                    {item.label}
+                    <ChevronDown className="h-4 w-4" />
+                  </Link>
+                  <div className="invisible absolute left-0 top-full z-50 min-w-64 rounded-md border border-line bg-white py-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        className={`block px-4 py-2 text-sm transition-colors hover:bg-band hover:text-accent ${
+                          isActive(child.href) ? "text-accent" : "text-navy"
+                        }`}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${
+                  className={`rounded px-3 py-2 text-base font-medium transition-colors hover:text-accent ${
                     isActive(item.href) ? "text-accent" : "text-navy"
                   }`}
                 >
                   {item.label}
-                  <ChevronDown className="h-4 w-4" />
                 </Link>
-                <div className="invisible absolute left-0 top-full z-50 min-w-64 rounded-md border border-line bg-white py-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:opacity-100">
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      className={`block px-4 py-2 text-sm transition-colors hover:bg-band hover:text-accent ${
-                        isActive(child.href) ? "text-accent" : "text-navy"
-                      }`}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`rounded px-3 py-2 text-sm font-medium transition-colors hover:text-accent ${
-                  isActive(item.href) ? "text-accent" : "text-navy"
-                }`}
-              >
-                {item.label}
-              </Link>
-            ),
-          )}
-        </nav>
+              ),
+            )}
+          </nav>
 
-        <div className="hidden shrink-0 lg:block">
-          <Button href="/contact-us" className="px-4 py-2">
-            Get a Quote
-          </Button>
+          <div className="shrink-0">
+            <Button href="/contact-us" className="px-4 py-2">
+              Get a Quote
+            </Button>
+          </div>
         </div>
 
         {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded p-2 text-navy lg:hidden"
+          className="ml-auto inline-flex items-center justify-center rounded p-2 text-navy lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
@@ -110,7 +112,7 @@ export default function Header() {
           className="border-t border-line bg-white lg:hidden"
           aria-label="Mobile"
         >
-          <Container className="flex flex-col py-2">
+          <Container className="!max-w-none flex flex-col !pl-5 !pr-4 py-2 sm:!pl-6 sm:!pr-5 lg:!pl-8 lg:!pr-6">
             {nav.primary.map((item) =>
               item.children ? (
                 <div key={item.href} className="border-b border-line/60">
@@ -119,7 +121,7 @@ export default function Header() {
                     onClick={() =>
                       setOpenMenu((m) => (m === item.href ? null : item.href))
                     }
-                    className="flex w-full items-center justify-between py-3 text-left text-sm font-medium text-navy"
+                    className="flex w-full items-center justify-between py-3 text-left text-base font-medium text-navy"
                     aria-expanded={openMenu === item.href}
                   >
                     {item.label}
@@ -156,7 +158,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`border-b border-line/60 py-3 text-sm font-medium ${
+                  className={`border-b border-line/60 py-3 text-base font-medium ${
                     isActive(item.href) ? "text-accent" : "text-navy"
                   }`}
                 >

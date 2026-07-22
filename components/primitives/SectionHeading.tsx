@@ -18,12 +18,16 @@ export default function SectionHeading({
   className = "",
 }: Props) {
   const alignment = align === "center" ? "text-center mx-auto" : "text-left";
-  const headingColor = tone === "light" ? "text-white" : "text-ink";
+  const headingColor = tone === "light" ? "!text-white" : "text-ink";
+  // Gold text on white fails contrast — accent kickers only on dark bands
+  const kickerColor = tone === "light" ? "text-accent" : "text-ink";
 
   return (
     <div className={`max-w-3xl ${alignment} ${className}`}>
       {kicker && (
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+        <p
+          className={`mb-2 text-sm font-semibold uppercase tracking-[0.18em] ${kickerColor}`}
+        >
           {kicker}
         </p>
       )}

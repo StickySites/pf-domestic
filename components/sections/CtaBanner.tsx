@@ -27,7 +27,7 @@ export default function CtaBanner({
       />
       <div className="absolute inset-0 bg-navy/75" />
       <Container className="relative flex flex-col items-center gap-6 py-16 text-center">
-        <h2 className="max-w-3xl text-2xl font-bold text-white sm:text-3xl">
+        <h2 className="max-w-3xl text-2xl font-bold !text-white sm:text-3xl">
           {heading}
         </h2>
         <Button href={buttonHref} variant="solid">
