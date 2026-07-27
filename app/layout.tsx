@@ -3,8 +3,8 @@ import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
 import { site } from "@/lib/data";
 import { CookieConsentInit } from "@/components/analytics/cookie-consent-init";
-import { GoogleAnalytics } from "@/components/analytics/google-analytics";
-import { MetaPixel } from "@/components/analytics/meta-pixel";
+import { GoogleTagManager } from "@/components/analytics/google-tag-manager";
+import { MicrosoftClarity } from "@/components/analytics/microsoft-clarity";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -53,8 +53,8 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white">
         {children}
         <CookieConsentInit />
-        <GoogleAnalytics />
-        <MetaPixel />
+        <GoogleTagManager />
+        <MicrosoftClarity />
       </body>
     </html>
   );

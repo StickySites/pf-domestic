@@ -7,12 +7,8 @@ import { setConsent } from "@/lib/cookie-consent/consent-store";
 
 /**
  * Mounts once in the root layout. Dynamically imports vanilla-cookieconsent
- * (a DOM-manipulating vanilla-JS lib) inside useEffect so it never runs
- * during SSR, then runs it and mirrors accepted categories into our own
- * consent-store so GoogleAnalytics/MetaPixel can react to them.
- *
- * Renders nothing itself — the library appends its own banner/modal
- * markup directly to <body>.
+ * inside useEffect so it never runs during SSR, then mirrors accepted
+ * categories into consent-store so GTM / Clarity can react to them.
  */
 export function CookieConsentInit() {
   useEffect(() => {
@@ -24,7 +20,6 @@ export function CookieConsentInit() {
       function syncConsent() {
         setConsent({
           analytics: CookieConsent.acceptedCategory("analytics"),
-          advertising: CookieConsent.acceptedCategory("advertising"),
         });
       }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/sections/PageHeader";
 import AboutContent from "@/components/sections/AboutContent";
+import ProcessSteps from "@/components/sections/ProcessSteps";
 import ContactStrip from "@/components/sections/ContactStrip";
 import { about } from "@/lib/data";
 
@@ -15,6 +16,7 @@ export default function Page() {
     <>
       <PageHeader heading={about.heading} />
       <AboutContent />
+      <ProcessSteps tone="band" />
       <ContactStrip />
     </>
   );

@@ -8,6 +8,7 @@ type Props = {
 
 // Lazy-loaded Google Maps iframe. Uses the live site's embed pattern:
 // https://maps.google.com/maps?q=<town>&t=m&z=10&output=embed&iwloc=near
+// sandbox limits the embed's privileges while still allowing Maps to run.
 export default function MapEmbed({ query, title, className = "" }: Props) {
   return (
     <div
@@ -17,8 +18,10 @@ export default function MapEmbed({ query, title, className = "" }: Props) {
         src={mapEmbedSrc(query)}
         title={title ?? `Map of ${query}`}
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className="absolute inset-0 h-full w-full"
+        referrerPolicy="strict-origin-when-cross-origin"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        allowFullScreen
+        className="absolute inset-0 h-full w-full border-0"
       />
     </div>
   );

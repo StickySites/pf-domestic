@@ -9,7 +9,6 @@ export const site = {
   phoneHref: "tel:+447943343969",
   phoneDisplay: "+44 7943 343969",
   email: "admin@pfdomesticsolutions.com",
-  address: "166 College Road, Harrow, England HA1 1BH",
   facebook:
     "https://www.facebook.com/people/PF-Domestic-Solutions-LTD/61550506768914/",
   instagram: "https://www.instagram.com/pf_domestic_solutions/",
@@ -46,6 +45,41 @@ export const images = {
   oxford: "/Site-Images/oxford.png",
   news: "/Site-Images/news.png",
 };
+
+export type Accreditation = {
+  name: string;
+  src: string;
+  width: number;
+  height: number;
+};
+
+/** Trade accreditations & memberships, shown as a trust strip in the footer. */
+export const accreditations: Accreditation[] = [
+  {
+    name: "Gas Safe Register",
+    src: "/Brand-Assets/Accreditation-Logos/Gas-Safe-Register-Logo.png",
+    width: 860,
+    height: 995,
+  },
+  {
+    name: "NICEIC Approved Contractor",
+    src: "/Brand-Assets/Accreditation-Logos/NICEIC-Approved-Contractor-Logo.jpg",
+    width: 1024,
+    height: 639,
+  },
+  {
+    name: "BNI Member",
+    src: "/Brand-Assets/Accreditation-Logos/BNI-Logo.png",
+    width: 1280,
+    height: 800,
+  },
+  {
+    name: "Grafters Super Group",
+    src: "/Brand-Assets/Accreditation-Logos/Grafters-Super-Groups-Logo.png",
+    width: 204,
+    height: 192,
+  },
+];
 
 export type Service = {
   slug: string;
@@ -671,6 +705,45 @@ export const about = {
   cta: "Get in touch today to discuss your project – we look forward to working with you!",
 };
 
+export type ProcessStep = { step: number; title: string; body: string };
+
+// Single source of truth for the "how we work" explanation — rendered by
+// components/sections/ProcessSteps.tsx wherever it's used (About, Building
+// Services), so every placement stays word-for-word identical.
+export const process = {
+  kicker: "OUR PROCESS",
+  heading: "How We Work",
+  intro:
+    "From that first phone call to the final walkthrough, here's what working with P&F Domestic Solutions looks like.",
+  steps: [
+    {
+      step: 1,
+      title: "Free Consultation",
+      body: "We visit your home to discuss your ideas, assess the site and talk through what's achievable — no obligation, no pressure.",
+    },
+    {
+      step: 2,
+      title: "Transparent Quotation",
+      body: "You'll receive a clear, itemised quote with no hidden costs, so you know exactly what you're paying for before any work begins.",
+    },
+    {
+      step: 3,
+      title: "Planning & Approvals",
+      body: "Where planning permission, building regulations or party wall matters apply, we handle the paperwork and keep you informed at every step.",
+    },
+    {
+      step: 4,
+      title: "Expert Build",
+      body: "Our skilled in-house tradespeople carry out the work to the agreed schedule, keeping disruption to your home and family to a minimum.",
+    },
+    {
+      step: 5,
+      title: "Sign-Off & Guarantee",
+      body: "We complete a full walkthrough and quality check with you, and every job is backed by our guarantee for total peace of mind.",
+    },
+  ] satisfies ProcessStep[],
+};
+
 export const contact = {
   heading: "Contact Us Today For a FREE No obligation Quote",
   phoneLine: `Call us on: ${site.phone}`,
@@ -709,7 +782,6 @@ export const gallery = {
   heading: "Project Gallery",
   intro:
     "Take a look at some of our previous works. Contact us today to find out what we can do for you.",
-  address: site.address,
   // Curated finished (or near-finished) job photos — not every site snap or video.
   projects: [
     {
@@ -882,8 +954,7 @@ export const thankYou = {
 };
 
 // Concise UK GDPR / Data Protection Act 2018 policy for a marketing site with a
-// contact/quote form. Update when analytics, a consent banner, or a form backend
-// (e.g. Resend) is introduced.
+// contact/quote form (Resend), consent-gated analytics (GTM/GA4 + Clarity), and maps.
 export const privacyPolicy = {
   heading: "Privacy Policy",
   intro:
@@ -900,7 +971,7 @@ export const privacyPolicy = {
       heading: "What information we collect",
       body: [
         "When you use our contact or quote form, we ask for your first name, phone number, email address and any comments you choose to include about your enquiry. You may also opt in to our newsletter.",
-        "We may also receive personal information if you contact us by phone, email or social media. Server and hosting logs may record technical details such as your IP address and browser type when you visit the site; these are used only to operate and secure the website.",
+        "We may also receive personal information if you contact us by phone, email or social media. Server and hosting logs may record technical details such as your IP address and browser type when you visit the site; these are used only to operate and secure the website, including rate-limiting form abuse.",
       ],
     },
     {
@@ -911,15 +982,23 @@ export const privacyPolicy = {
       ],
     },
     {
+      heading: "Who we share information with",
+      body: [
+        "Enquiry emails are sent using Resend, our email delivery provider, so they can deliver your message to us. Resend processes the content of the form (and related delivery metadata) on our behalf for that purpose.",
+        "If you complete an optional security check on the form, Cloudflare Turnstile may process a short-lived token and technical data to confirm you are human.",
+        "If you consent to analytics cookies, Google (via Tag Manager / Analytics) and Microsoft Clarity may receive usage data as described in our Cookie Policy (UK). You can change or withdraw that consent at any time.",
+      ],
+    },
+    {
       heading: "Legal basis",
       body: [
-        "We process enquiry data because it is necessary to take steps at your request before entering into a contract, or because we have a legitimate interest in responding to business enquiries and operating this website. Where you opt in to marketing, we rely on your consent, which you may withdraw at any time.",
+        "We process enquiry data because it is necessary to take steps at your request before entering into a contract, or because we have a legitimate interest in responding to business enquiries and operating this website. Where you opt in to marketing, we rely on your consent, which you may withdraw at any time. Analytics cookies are only used with your consent.",
       ],
     },
     {
       heading: "Cookies and third-party content",
       body: [
-        "This website does not currently set analytics, advertising or tracking cookies of its own. Some pages embed a Google Map, which may set cookies under Google’s own policies. For more detail, see our Cookie Policy (UK).",
+        "We use a cookie preference tool so you can accept or reject non-essential cookies. Analytics cookies (Google Tag Manager / GA4 and Microsoft Clarity) are off by default until you opt in. Some pages embed a Google Map, which may set cookies under Google’s own policies. For more detail, see our Cookie Policy (UK).",
       ],
     },
     {
@@ -941,14 +1020,10 @@ export const privacyPolicy = {
     "For questions about this Privacy Policy or to exercise your data protection rights, please contact us:",
 };
 
-// Placeholder pending a consent-management solution (Stage 7 backlog). The live WP
-// policy is generated by CookieYes and documents WordPress/Elementor/Google Analytics
-// cookies plus a consent pop-up — none of which exist in this build, so reproducing it
-// verbatim would be inaccurate. Replace this wholesale when the banner is wired up.
 // Keep category descriptions in sync with lib/cookie-consent/config.ts.
 export const cookiePolicy = {
   heading: "Cookie Policy (UK)",
-  lastUpdated: "21 July 2026",
+  lastUpdated: "22 July 2026",
   intro:
     "This policy explains how P&F Domestic Solutions uses cookies and similar technologies on this website, and the choices available to you. It applies to citizens and legal permanent residents of the United Kingdom, and should be read alongside our Privacy Policy.",
   sections: [
@@ -962,9 +1037,8 @@ export const cookiePolicy = {
       heading: "Cookies we use",
       body: [
         "Strictly necessary — cookies required for the site’s core functionality, such as remembering your cookie preferences. These can’t be switched off without affecting how the site works.",
-        "Analytics — when enabled, we use Google Analytics (GA4) to understand how visitors use the site: pages viewed, time on page, referral source, approximate location, and device/browser type. This helps us improve the site over time.",
-        "Advertising — when enabled, we use the Meta Pixel to understand how visitors arrive from Meta platforms (Facebook/Instagram) and to measure the performance of any advertising campaigns we run.",
-        "Analytics and advertising cookies are only active where the relevant tracking IDs are configured, and only once you’ve given consent via the cookie banner. You can change your choice at any time using the manage preferences control on this page or in the site footer.",
+        "Analytics — when enabled, we load Google Tag Manager, which runs Google Analytics (GA4) to understand how visitors use the site (pages viewed, time on page, referral source, approximate location, and device/browser type). We also use Microsoft Clarity for anonymised session recordings and heatmaps to improve usability. These tools only run once you’ve given consent via the cookie banner, and only when the relevant tracking IDs are configured.",
+        "You can change your choice at any time using the manage preferences control on this page or in the site footer.",
       ],
     },
     {
@@ -976,7 +1050,7 @@ export const cookiePolicy = {
     {
       heading: "Managing cookies",
       body: [
-        "You can control or delete cookies through your browser settings at any time. Most browsers let you refuse cookies, or alert you when a cookie is being set. Blocking analytics or advertising cookies won’t stop the site working, though it does mean we won’t be able to measure how it’s used or how any campaigns are performing.",
+        "You can control or delete cookies through your browser settings at any time. Most browsers let you refuse cookies, or alert you when a cookie is being set. Blocking analytics cookies won’t stop the site working, though it does mean we won’t be able to measure how it’s used.",
       ],
     },
     {

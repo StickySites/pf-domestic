@@ -53,10 +53,6 @@ export default function Page() {
               <address className="not-italic">
                 {site.name}
                 <br />
-                {site.address}
-                <br />
-                United Kingdom
-                <br />
                 <a
                   href={`mailto:${site.email}`}
                   className="font-medium text-ink underline hover:text-accent"

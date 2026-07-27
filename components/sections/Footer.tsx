@@ -9,7 +9,7 @@ import {
   Mail,
 } from "@/components/primitives/icons";
 import { ManageCookiesButton } from "@/components/analytics/manage-cookies-button";
-import { site, images, nav } from "@/lib/data";
+import { site, images, nav, accreditations } from "@/lib/data";
 
 export default function Footer() {
   return (
@@ -137,6 +137,25 @@ export default function Footer() {
           </div>
         </div>
       </Container>
+
+      <div className="border-t border-white/10">
+        <Container className="!max-w-none flex flex-wrap items-center justify-center gap-6 !px-6 py-8 sm:!px-8 sm:justify-start lg:!px-10">
+          {accreditations.map((logo) => (
+            <div
+              key={logo.name}
+              className="flex h-14 w-24 items-center justify-center rounded-md bg-white p-2"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+                className="h-full w-full object-contain"
+              />
+            </div>
+          ))}
+        </Container>
+      </div>
 
       <div className="border-t border-white/10">
         <Container className="!max-w-none flex flex-col items-center justify-between gap-2 !px-6 py-4 text-xs text-white/60 sm:!px-8 sm:flex-row lg:!px-10">

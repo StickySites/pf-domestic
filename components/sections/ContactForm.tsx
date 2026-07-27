@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Container from "@/components/primitives/Container";
 import Button from "@/components/primitives/Button";
+import TurnstileWidget from "@/components/analytics/TurnstileWidget";
 import { contact } from "@/lib/data";
 
 const inputClass =
@@ -14,9 +15,10 @@ type FieldProps = {
   id: "firstName" | "phone" | "email";
   type?: string;
   inputMode?: "text" | "tel" | "email" | "numeric";
+  autoComplete?: string;
 };
 
-function Field({ id, type = "text", inputMode }: FieldProps) {
+function Field({ id, type = "text", inputMode, autoComplete }: FieldProps) {
   const field = contact.fields[id];
   return (
     <div>
@@ -33,6 +35,7 @@ function Field({ id, type = "text", inputMode }: FieldProps) {
         name={id}
         type={type}
         inputMode={inputMode}
+        autoComplete={autoComplete}
         placeholder={field.placeholder}
         required={field.required}
         className={inputClass}
@@ -59,22 +62,69 @@ export default function ContactForm({
 }: Props) {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [formStartedAt] = useState(() => Date.now());
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRequired = Boolean(
+    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+  );
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
 
-    // Honeypot: real users never see this field, so a filled value means a bot.
-    // Bail silently rather than telling the bot it was caught.
-    // TODO: the API route must repeat this check server-side — never trust the client.
-    if ((form.elements.namedItem("company") as HTMLInputElement)?.value) return;
+    // Client honeypot: bail silently (server repeats this check).
+    if ((form.elements.namedItem("company") as HTMLInputElement)?.value) {
+      return;
+    }
 
     if (submitting) return;
-    setSubmitting(true);
 
-    // TODO: wire to API route + Resend (Stage 7 backlog). UI-only stub: the live
-    // Fluent Form redirects to the same confirmation page on success.
-    router.push(contact.redirectTo);
+    if (turnstileRequired && !turnstileToken) {
+      setError("Please complete the security check.");
+      return;
+    }
+
+    setSubmitting(true);
+    setError(null);
+
+    const fd = new FormData(form);
+    const payload = {
+      firstName: String(fd.get("firstName") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      comments: String(fd.get("comments") ?? ""),
+      newsletter: fd.get("newsletter") === "on",
+      company: String(fd.get("company") ?? ""),
+      formStartedAt,
+      turnstileToken,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = (await res.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!res.ok || !data?.ok) {
+        setError(
+          data?.error ||
+            "We couldn't send your message. Please try again or call us.",
+        );
+        setSubmitting(false);
+        return;
+      }
+
+      router.push(contact.redirectTo);
+    } catch {
+      setError("We couldn't send your message. Please try again or call us.");
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -111,10 +161,20 @@ export default function ContactForm({
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-            <Field id="firstName" />
-            <Field id="phone" type="tel" inputMode="numeric" />
-            <Field id="email" type="email" inputMode="email" />
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <Field id="firstName" autoComplete="given-name" />
+            <Field
+              id="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+            />
+            <Field
+              id="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+            />
 
             <div>
               <label
@@ -129,6 +189,7 @@ export default function ContactForm({
                 rows={5}
                 placeholder={contact.fields.comments.placeholder}
                 className={inputClass}
+                maxLength={2000}
               />
             </div>
 
@@ -142,7 +203,10 @@ export default function ContactForm({
             </label>
 
             {/* Honeypot — hidden from users and assistive tech, attractive to bots. */}
-            <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+            <div
+              aria-hidden="true"
+              className="absolute left-[-9999px] h-0 w-0 overflow-hidden"
+            >
               <label htmlFor="company">Company (leave blank)</label>
               <input
                 id="company"
@@ -152,6 +216,17 @@ export default function ContactForm({
                 autoComplete="off"
               />
             </div>
+
+            <TurnstileWidget onToken={setTurnstileToken} />
+
+            {error && (
+              <p
+                role="alert"
+                className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
+              >
+                {error}
+              </p>
+            )}
 
             <Button type="submit">
               {submitting ? "Sending…" : contact.fields.submit}

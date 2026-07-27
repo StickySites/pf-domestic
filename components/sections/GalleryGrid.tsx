@@ -27,7 +27,6 @@ export default function GalleryGrid() {
             </figure>
           ))}
         </div>
-        <p className="mt-10 text-center text-sm text-muted">{gallery.address}</p>
       </Container>
     </section>
   );

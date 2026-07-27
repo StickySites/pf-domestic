@@ -6,9 +6,10 @@ import type CookieConsent from "vanilla-cookieconsent";
  * apart silently — if you add a category, update both.
  *
  * Categories map 1:1 to the scripts they gate:
- *  - necessary    -> nothing to gate, always on
- *  - analytics    -> GoogleAnalytics (components/analytics/google-analytics.tsx)
- *  - advertising  -> MetaPixel (components/analytics/meta-pixel.tsx)
+ *  - necessary  -> nothing to gate, always on
+ *  - analytics  -> Google Tag Manager (GA4) + Microsoft Clarity
+ *
+ * Advertising / Meta Pixel can be re-added later as a separate category.
  */
 export function getCookieConsentConfig(): CookieConsent.CookieConsentConfig {
   return {
@@ -33,7 +34,6 @@ export function getCookieConsentConfig(): CookieConsent.CookieConsentConfig {
         enabled: true,
       },
       analytics: {},
-      advertising: {},
     },
     language: {
       default: "en",
@@ -42,7 +42,7 @@ export function getCookieConsentConfig(): CookieConsent.CookieConsentConfig {
           consentModal: {
             title: "We use cookies",
             description:
-              'We use cookies to run the site, and (only with your permission) to understand how it’s used and measure ad performance. See our <a href="/cookie-policy-uk" class="cc-link">Cookie Policy</a> for details.',
+              'We use cookies to run the site, and (only with your permission) to understand how it’s used via Google Analytics and Microsoft Clarity. See our <a href="/cookie-policy-uk" class="cc-link">Cookie Policy</a> for details.',
             acceptAllBtn: "Accept all",
             acceptNecessaryBtn: "Reject all",
             showPreferencesBtn: "Manage preferences",
@@ -62,14 +62,8 @@ export function getCookieConsentConfig(): CookieConsent.CookieConsentConfig {
               {
                 title: "Analytics",
                 description:
-                  "Helps us understand how visitors use the site, via Google Analytics.",
+                  "Helps us understand how visitors use the site via Google Tag Manager / Google Analytics (GA4) and Microsoft Clarity (session recordings and heatmaps).",
                 linkedCategory: "analytics",
-              },
-              {
-                title: "Advertising",
-                description:
-                  "Used to measure the performance of ads run via Meta (Facebook/Instagram), via the Meta Pixel.",
-                linkedCategory: "advertising",
               },
               {
                 title: "More information",
