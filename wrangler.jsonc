@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "pf-domestic-next",
+  "name": "pf-domestic",
   "main": ".open-next/worker.js",
   // Bump this to today's date when you next touch this file — see
   // https://developers.cloudflare.com/workers/configuration/compatibility-dates/
