@@ -2,6 +2,7 @@ import Image from "next/image";
 import Container from "@/components/primitives/Container";
 import CtaBanner from "@/components/sections/CtaBanner";
 import CostEstimatorStrip from "@/components/sections/CostEstimatorStrip";
+import ReviewsStrip from "@/components/sections/ReviewsStrip";
 import ContactStrip from "@/components/sections/ContactStrip";
 import PageHeader from "@/components/sections/PageHeader";
 import { type Service } from "@/lib/data";
@@ -35,6 +36,7 @@ export default function ServicePage({ service }: { service: Service }) {
       </section>
       <CostEstimatorStrip />
       <CtaBanner heading={service.ctaHeading} />
+      <ReviewsStrip heading="What Our Customers Say" tone="white" />
       <ContactStrip />
     </>
   );

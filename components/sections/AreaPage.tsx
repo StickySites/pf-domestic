@@ -5,6 +5,7 @@ import ServiceHighlights from "@/components/sections/ServiceHighlights";
 import TownProfile from "@/components/sections/TownProfile";
 import CtaBanner from "@/components/sections/CtaBanner";
 import FaqAccordion from "@/components/sections/FaqAccordion";
+import ReviewsStrip from "@/components/sections/ReviewsStrip";
 import ContactStrip from "@/components/sections/ContactStrip";
 import { type Area, images } from "@/lib/data";
 
@@ -49,7 +50,8 @@ export default function AreaPage({ area }: { area: Area }) {
         mapQuery={area.townMapQuery}
         paragraphs={area.townParagraphs}
       />
-      {area.showFaqs && <FaqAccordion />}
+      {area.showFaqs && <FaqAccordion subheading={area.faqSubheading} />}
+      <ReviewsStrip heading="What Our Customers Say" tone="band" />
       <ContactStrip />
     </>
   );

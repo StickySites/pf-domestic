@@ -1,5 +1,6 @@
 import Container from "@/components/primitives/Container";
 import SectionHeading from "@/components/primitives/SectionHeading";
+import Button from "@/components/primitives/Button";
 import { Stars, Google } from "@/components/primitives/icons";
 import { reviews, reviewsSummary } from "@/lib/data";
 
@@ -45,6 +46,12 @@ export default function ReviewsStrip({ heading, tone = "band" }: Props) {
             </li>
           ))}
         </ul>
+
+        <div className="mt-10 flex justify-center">
+          <Button href={reviewsSummary.profileUrl} variant="outline">
+            See all reviews on Google
+          </Button>
+        </div>
       </Container>
     </section>
   );

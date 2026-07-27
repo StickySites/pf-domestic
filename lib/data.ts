@@ -252,6 +252,8 @@ export type Area = {
   challenges?: { heading: string; intro: string; bullets: string[] };
   /** Live parity: Marlow is published but orphaned — it is not in the WP nav menu. */
   showInNav?: boolean;
+  /** Optional kicker shown above the FAQ accordion heading when showFaqs is true. */
+  faqSubheading?: string;
 };
 
 export const areas: Area[] = [
@@ -301,10 +303,16 @@ export const areas: Area[] = [
       "Oxford presents unique building considerations. The city includes conservation areas, listed buildings and controlled planning zones, particularly near central districts and historic neighbourhoods. This means extensions must often be carefully designed to align with local authority guidance. Many properties have compact footprints, making side extensions highly valuable. Growing families often extend rather than relocate due to Oxford’s competitive property market, and energy efficiency upgrades are increasingly important in older housing stock.",
       "Understanding these factors early helps ensure smoother project progression and fewer planning delays. We understand the character and diversity of Oxford housing and create natural spaces that feel like home.",
     ],
-    townHeading: "Common Questions - Oxfordshire",
+    townHeading: "Oxford Town",
     townMapQuery: "Oxford",
-    townParagraphs: [],
+    townParagraphs: [
+      "Oxford is Oxfordshire's historic county town and one of the most recognised cities in the world, famed for the University of Oxford's medieval colleges and the honey-coloured ‘dreaming spires’ that define its skyline.",
+      "The city blends grand academic architecture with characterful residential areas such as Jericho, Headington and Cowley, alongside the rivers Thames and Cherwell, which wind through the centre and support popular green spaces like Port Meadow and the University Parks.",
+      "Oxford benefits from strong transport links, with the M40 and A34 connecting to London and the Midlands, and fast rail services from Oxford station reaching London Paddington in around an hour.",
+      "With excellent schools, a thriving covered market and a strong professional and academic population, Oxford remains one of the most sought-after — and competitive — property markets in the South East.",
+    ],
     showFaqs: true,
+    faqSubheading: "Common Questions - Oxfordshire",
   },
   {
     slug: "building-services-in-hillingdon",
@@ -517,10 +525,16 @@ export const areas: Area[] = [
     outro: [
       "Understanding these factors early helps ensure smoother project progression and fewer planning delays.",
     ],
-      townHeading: "Common Questions - Marlow",
+      townHeading: "Marlow Town",
       townMapQuery: "Marlow",
-      townParagraphs: [],
+      townParagraphs: [
+        "Marlow is an affluent market town in Buckinghamshire, set on a bend of the River Thames and known for its handsome Georgian High Street and the elegant Marlow Suspension Bridge, designed by the same engineer behind Clifton Suspension Bridge.",
+        "The town has a strong reputation for its food scene, including several Michelin-starred restaurants, alongside independent shops, riverside walks and Higginson Park, which hosts the annual Marlow Regatta.",
+        "Well placed for commuters, Marlow sits close to the M40 and M4, with train services connecting via Maidenhead to London Paddington in around 40 minutes.",
+        "Popular with families and professionals alike, Marlow offers a sought-after mix of period cottages, riverside properties and new developments, making it one of Buckinghamshire's most desirable — and competitive — places to live.",
+      ],
       showFaqs: true,
+      faqSubheading: "Common Questions - Marlow",
   },
 ];
 
@@ -541,7 +555,11 @@ export const coverageTowns: { name: string; mapQuery: string; href?: string }[] 
     { name: "Gerrards Cross", mapQuery: "Gerrards Cross" },
     { name: "The Chalfonts", mapQuery: "Chalfont st peter" },
     { name: "Amersham", mapQuery: "Amersham" },
-    { name: "Marlow", mapQuery: "Marlow" },
+    {
+      name: "Marlow",
+      mapQuery: "Marlow",
+      href: "/building-services-in-marlow",
+    },
     { name: "Chorleywood", mapQuery: "Chorleywood" },
     { name: "Great Missenden", mapQuery: "Great Missenden" },
     { name: "Oxford", mapQuery: "Oxford", href: "/building-services-in-oxford" },
@@ -921,11 +939,6 @@ export const gallery = {
         "/Job-Photos/Exterior-Brick-Painting/Painted-Brick-Side-Return-Rear-View.jpeg",
       alt: "Painted brick side return exterior",
     },
-    {
-      title: "Oxford Extension Project",
-      image: images.oxford,
-      alt: "Oxford extension project",
-    },
   ] satisfies GalleryProject[],
 };
 
@@ -1068,15 +1081,33 @@ export const cookiePolicy = {
 
 export type Review = { name: string; text: string; rating: number };
 
-// Verified Google reviews, transcribed from the Trustindex widget on the live
-// /house-extensions-oxford landing page (9 shown of 19 total).
+// Verified Google reviews, manually transcribed from the business's Google
+// Maps profile (12 shown of 19 total — the rest were truncated by Google's
+// "... More" cutoff on the profile page, so left out rather than guessed at).
 export const reviewsSummary = {
   rating: "EXCELLENT",
   count: 19,
   source: "Google",
+  profileUrl:
+    "https://www.google.com/maps/place/P+%26+F+Domestic+Solutions/@51.7266376,-1.3520857,157581m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47fe1be3d3872dfb:0xd20c3646f5f79a6a!8m2!3d51.7276316!4d-0.6927426!16s%2Fg%2F11n9w6prmk",
 };
 
 export const reviews: Review[] = [
+  {
+    name: "Hayley Wilson",
+    rating: 5,
+    text: "P&F Domestic Solutions were fantastic from the get go! Frankie and team did an amazing job transforming my kitchen and I'm over the moon with their service! The team were so efficient and helpful, paying such attention to detail and made the kitchen of my dreams! Couldn't recommend these guys enough!",
+  },
+  {
+    name: "Sofiya Burnusuz",
+    rating: 5,
+    text: "Amazing company to work with! I have been working with Frankie and Paul for a while and they are extremely professional and proactive, with great attention to detail, delivering the projects on time. I highly recommend P&F for your buildworks and interior fit-out works.",
+  },
+  {
+    name: "Karl Fenn",
+    rating: 5,
+    text: "Frankie and his team did an excellent job for us. They were reliable, hard working and true to their word. I can't recommended them highly enough and will absolutely use them again.",
+  },
   {
     name: "Elizabeth Johns",
     rating: 5,

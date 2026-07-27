@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/sections/PageHeader";
 import ContactForm from "@/components/sections/ContactForm";
 import FaqAccordion from "@/components/sections/FaqAccordion";
+import ReviewsStrip from "@/components/sections/ReviewsStrip";
 import ContactStrip from "@/components/sections/ContactStrip";
 import { contact } from "@/lib/data";
 
@@ -22,6 +23,7 @@ export default function Page() {
         subheading={contact.faqHeading}
         tone="band"
       />
+      <ReviewsStrip heading="What Our Customers Say" tone="white" />
       <ContactStrip />
     </>
   );
