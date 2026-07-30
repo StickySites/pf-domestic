@@ -5,7 +5,7 @@ import { home, images, site } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <section className="relative isolate flex min-h-[62vh] items-center overflow-hidden bg-navy-dark sm:min-h-[70vh] md:min-h-[75vh] lg:min-h-[85vh]">
+    <section className="relative isolate flex min-h-[calc(100dvh-6.0625rem)] items-center overflow-hidden bg-navy-dark">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={images.home}
@@ -18,16 +18,16 @@ export default function Hero() {
       </div>
       {/* Mobile: full-width bottom→top darken for readable copy over bright wood */}
       <div
-        className="absolute inset-0 bg-gradient-to-t from-navy-dark/92 via-navy-dark/72 to-navy-dark/48 md:hidden"
+        className="absolute inset-0 bg-gradient-to-t from-navy-dark/85 via-navy-dark/62 to-navy-dark/38 md:hidden"
         aria-hidden="true"
       />
       {/* md+: L→R scrim + light bottom vignette — shows more photo colour */}
       <div
-        className="absolute inset-0 hidden bg-gradient-to-r from-navy-dark/92 via-navy-dark/55 to-navy-dark/15 md:block"
+        className="absolute inset-0 hidden bg-gradient-to-r from-navy-dark/85 via-navy-dark/45 to-navy-dark/10 md:block"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 hidden bg-gradient-to-t from-navy-dark/55 via-transparent to-navy-dark/25 md:block"
+        className="absolute inset-0 hidden bg-gradient-to-t from-navy-dark/45 via-transparent to-navy-dark/18 md:block"
         aria-hidden="true"
       />
 

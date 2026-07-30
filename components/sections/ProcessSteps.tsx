@@ -6,8 +6,8 @@ type Props = {
   tone?: "white" | "band";
 };
 
-// Renders the shared `process` data from lib/data.ts. Used on both the About
-// and Building Services pages so the "how we work" explanation is identical
+// Renders the shared `process` data from lib/data.ts. Used on About, Building
+// Services, and the homepage so the "how we work" explanation is identical
 // wherever it appears — update the copy once, in one place.
 export default function ProcessSteps({ tone = "white" }: Props) {
   return (
@@ -18,20 +18,24 @@ export default function ProcessSteps({ tone = "white" }: Props) {
           {process.intro}
         </p>
 
-        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {process.steps.map((step) => (
             <li
               key={step.step}
-              className="flex flex-col items-start gap-3 rounded-lg border border-line bg-white p-6 shadow-sm"
+              className="group flex min-h-[14rem] flex-col gap-4 rounded-lg border border-line border-t-[3px] border-t-accent bg-white p-6 shadow-sm transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span
                 aria-hidden="true"
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-bold text-ink"
+                className="font-heading text-4xl font-bold leading-none tracking-tight text-accent tabular-nums"
               >
-                {step.step}
+                {String(step.step).padStart(2, "0")}
               </span>
-              <p className="font-semibold text-ink">{step.title}</p>
-              <p className="text-sm leading-relaxed text-body">{step.body}</p>
+              <div className="flex flex-1 flex-col gap-2">
+                <p className="font-heading text-lg font-semibold leading-snug text-ink">
+                  {step.title}
+                </p>
+                <p className="text-sm leading-relaxed text-body">{step.body}</p>
+              </div>
             </li>
           ))}
         </ol>

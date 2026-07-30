@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <PageHeader heading={contact.heading} intro={contact.phoneLine} />
+      <PageHeader heading={contact.heading} />
+      <ContactStrip heading="Prefer to call?" showEmail={false} />
       <ContactForm />
       <FaqAccordion
         heading="Get Answers to Your Questions"

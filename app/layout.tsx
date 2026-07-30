@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s - ${site.name}`,
   },
   description:
-    "P&F Domestic Solutions — expert building and construction services in Harrow, Hillingdon, Beaconsfield and across London and the Home Counties. Extensions, loft & garage conversions, kitchens, bathrooms and garden rooms.",
+    "P&F Domestic Solutions: expert building and construction services in Harrow, Hillingdon, Beaconsfield and across London and the Home Counties. Extensions, loft & garage conversions, kitchens, bathrooms and garden rooms.",
   openGraph: {
     type: "website",
     locale: "en_GB",

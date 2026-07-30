@@ -3,9 +3,18 @@ import type { NextConfig } from "next";
 /**
  * Security headers for all routes.
  * CSP allows: self-hosted assets, Google Maps embeds, GTM/GA4 + Microsoft Clarity
- * (only loaded after cookie consent), and optional Cloudflare Turnstile.
+ * (only loaded after cookie consent), optional Cloudflare Turnstile, and the
+ * Jotform Instagram website widget on the homepage (includes Instagram/Facebook
+ * CDN hosts for post images and profile photos).
  * Next.js still needs 'unsafe-inline' for some runtime scripts/styles.
+ *
+ * 'unsafe-eval' is DEV ONLY — React needs eval() for debugging call stacks in
+ * `next dev`. Production / Cloudflare Workers builds stay without it.
+ * Keep headers here (next.config) as the single source of truth; don't also set
+ * a conflicting CSP in Cloudflare Transform Rules.
  */
+const isDev = process.env.NODE_ENV === "development";
+
 const contentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
@@ -17,6 +26,7 @@ const contentSecurityPolicy = [
     "script-src",
     "'self'",
     "'unsafe-inline'",
+    ...(isDev ? ["'unsafe-eval'"] : []),
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://*.googletagmanager.com",
@@ -25,6 +35,7 @@ const contentSecurityPolicy = [
     "https://*.clarity.ms",
     "https://scripts.clarity.ms",
     "https://challenges.cloudflare.com",
+    "https://www.jotform.com",
   ].join(" "),
   ["style-src", "'self'", "'unsafe-inline'", "https://fonts.googleapis.com"].join(
     " ",
@@ -46,8 +57,31 @@ const contentSecurityPolicy = [
     "https://*.google.com",
     "https://*.googleapis.com",
     "https://pfdomesticsolutions.com",
+    // Jotform Instagram widget: Jotform hosts + Instagram/Facebook CDNs for posts & PFPs
+    "https://www.jotform.com",
+    "https://cdn.jotfor.ms",
+    "https://*.jotform.com",
+    "https://*.cdninstagram.com",
+    "https://*.fbcdn.net",
+    "https://instagram.com",
+    "https://www.instagram.com",
   ].join(" "),
-  ["font-src", "'self'", "data:", "https://fonts.gstatic.com"].join(" "),
+  [
+    "font-src",
+    "'self'",
+    "data:",
+    "https://fonts.gstatic.com",
+    "https://cdn.jotfor.ms",
+  ].join(" "),
+  [
+    "media-src",
+    "'self'",
+    "https://www.jotform.com",
+    "https://cdn.jotfor.ms",
+    "https://*.jotform.com",
+    "https://*.cdninstagram.com",
+    "https://*.fbcdn.net",
+  ].join(" "),
   [
     "connect-src",
     "'self'",
@@ -59,6 +93,11 @@ const contentSecurityPolicy = [
     "https://www.clarity.ms",
     "https://*.clarity.ms",
     "https://n.clarity.ms",
+    "https://www.jotform.com",
+    "https://api.jotform.com",
+    "https://events.jotform.com",
+    "https://cdn.jotfor.ms",
+    "https://*.jotform.com",
   ].join(" "),
   [
     "frame-src",
@@ -67,6 +106,10 @@ const contentSecurityPolicy = [
     "https://www.google.com",
     "https://www.googletagmanager.com",
     "https://challenges.cloudflare.com",
+    "https://www.jotform.com",
+    "https://form.jotform.com",
+    "https://instagram.com",
+    "https://www.instagram.com",
   ].join(" "),
   ["worker-src", "'self'", "blob:"].join(" "),
 ].join("; ");
@@ -100,6 +143,30 @@ const nextConfig: NextConfig = {
         pathname: "/wp-content/uploads/**",
       },
     ],
+  },
+  async redirects() {
+    return [
+      {
+        source: "/project-gallery/exterior-brick-painting",
+        destination: "/project-gallery/guttering-rain-collector",
+        permanent: true,
+      },
+      {
+        source: "/project-gallery/garden-room",
+        destination: "/project-gallery",
+        permanent: true,
+      },
+      {
+        source: "/project-gallery/garage-conversion",
+        destination: "/project-gallery",
+        permanent: true,
+      },
+      {
+        source: "/project-gallery/extension-interior-fit-out",
+        destination: "/project-gallery",
+        permanent: true,
+      },
+    ];
   },
   async headers() {
     return [

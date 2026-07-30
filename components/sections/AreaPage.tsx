@@ -14,13 +14,14 @@ import { type Area, images } from "@/lib/data";
 export default function AreaPage({ area }: { area: Area }) {
   return (
     <>
-      <PageHeader heading={area.heading} image={area.image ?? images.doors} />
+      <PageHeader heading={area.heading} image={images.area} />
       <AreaIntro paragraphs={area.intro} />
       {area.showFaqs && (
         <CtaBanner heading="Planning a project in your area? Get a free, no-obligation quote today." />
       )}
       <ServiceHighlights
         items={area.serviceHighlights}
+        locationName={area.name}
         heading={area.highlightsHeading}
       />
       <section className="bg-white">

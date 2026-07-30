@@ -18,18 +18,24 @@ export default function AreasGrid() {
                 title={`Map of ${town.name}`}
                 className="rounded-none border-0 border-b border-line"
               />
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-ink">{town.name}</h3>
-                {town.href && (
-                  <Link
-                    href={town.href}
-                    className="mt-2 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-wide text-ink hover:text-accent"
-                  >
+              {town.href ? (
+                <Link
+                  href={town.href}
+                  className="group block p-5 transition-colors hover:bg-surface"
+                >
+                  <h3 className="text-lg font-bold text-ink group-hover:text-accent">
+                    {town.name}
+                  </h3>
+                  <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium uppercase tracking-wide text-ink group-hover:text-accent">
                     View area
                     <span aria-hidden="true">→</span>
-                  </Link>
-                )}
-              </div>
+                  </span>
+                </Link>
+              ) : (
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-ink">{town.name}</h3>
+                </div>
+              )}
             </article>
           ))}
         </div>

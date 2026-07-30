@@ -23,20 +23,35 @@ export const images = {
   logoOnDark: "/Brand-Assets/Logo-Files/PF-Logo-Dark-Transparent.png",
   /** Homepage hero — finished garden room lit at dusk. */
   home: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
-  /** House refurbishments — atmospheric hallway renovation stock. */
-  refurb: "/Stock-Marketing-Images/Stock-Hallway-Staircase-Renovation.webp",
+  /** House refurbishments — finished cream shaker kitchen reno (alt angle from kitchens service). */
+  refurb:
+    "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View2.jpeg",
   kitchen:
     "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View1.jpeg",
-  /** No loft job photos yet — loft bedroom stock. */
-  loft: "/Stock-Marketing-Images/Stock-Loft-Bedroom-Interior.webp",
+  /** No loft job photos yet — loft bedroom stock (cropped full-bleed; source had white canvas margins). */
+  loft: "/Stock-Marketing-Images/Stock-Loft-Bedroom-Interior-FullBleed.webp",
   extension:
     "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-01.jpeg",
+  /** Garage conversions — near-finished open-plan interior (folder’s other shot is mid-build electrics). */
   garage:
-    "/Job-Photos/Garage-Conversion/Garage-Conversion-Interior-White-Loft-Room.webp",
+    "/Job-Photos/House-Extension-Build/Extension-Interior-Open-Plan-Skylight.jpeg",
   garden:
     "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
   doors:
     "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
+  /** Shared area-page PageHeader — landscape finished exterior (1600×1200) for 100vw cover. */
+  area: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
+  /** Plumbing & electrical — first-fix electrics on a stud wall. */
+  plumbingElectrical:
+    "/Job-Photos/Extension-Interior-Fit-Out/Interior-First-Fix-Electrics-Stud-Wall.jpeg",
+  /** Wet room / bathroom plumbing — accessible shower install. */
+  wetRoom:
+    "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Grab-Rails-View1.jpeg",
+  /** General building & maintenance — finished garden landscaping / outdoor works. */
+  generalBuilding:
+    "/Job-Photos/Garden-Landscaping/Garden-Lawn-Hedge-Path-Bollard-Lights-01.jpeg",
+  /** Bespoke joinery / carpentry detail. */
+  joinery: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View1.jpeg",
   about: "/Site-Images/about.jpg",
   contact: "/Site-Images/contact.jpg",
   /** CTA band background — finished garden room at dusk. */
@@ -129,7 +144,7 @@ export const services: Service[] = [
   {
     slug: "loft-conversions",
     title: "Loft Conversions",
-    pageHeading: "Bespoke Loft Conversions in Harrow – P&F Domestic Solutions",
+    pageHeading: "Bespoke Loft Conversions in Harrow - P&F Domestic Solutions",
     cardBlurb:
       "We have extensive experience in delivering loft conversions that are carefully tailored to meet your specific needs, ensuring that every detail is customised to enhance your space and lifestyle.",
     image: images.loft,
@@ -244,7 +259,7 @@ export type Area = {
   townMapQuery: string;
   townParagraphs: string[];
   showFaqs?: boolean;
-  /** Header banner image. Defaults to the generic doors shot when not set. */
+  /** Header banner image. Unused — AreaPage always uses `images.area`. */
   image?: string;
   /** Optional heading above the serviceHighlights grid (Marlow uses a bespoke one). */
   highlightsHeading?: string;
@@ -262,7 +277,6 @@ export const areas: Area[] = [
     name: "Oxford",
     navLabel: "Building Services in Oxford",
     heading: "Building and Construction Services in Oxfordshire",
-    image: images.oxford,
     intro: [
       "P&F Domestic Solutions delivers high-quality side and rear home extensions in Oxford, helping homeowners create more space without the stress of moving. Whether you own a period terrace near the city centre, a 1930s semi in Headington, or a modern family home on the outskirts, we design and build extensions that complement your property and add lasting value.",
       "We work across Oxford and surrounding towns including Abingdon, Thame, Witney and Henley-on-Thames, providing practical, well-managed building solutions tailored to each home.",
@@ -275,7 +289,7 @@ export const areas: Area[] = [
       },
       {
         title: "House Extensions",
-        body: "Oxford properties vary from Victorian terraces to post-war semis and contemporary homes. A well-designed rear or side extension can transform how your space functions – creating open-plan kitchens, larger dining areas or multi-functional family rooms.",
+        body: "Oxford properties vary from Victorian terraces to post-war semis and contemporary homes. A well-designed rear or side extension can transform how your space functions, creating open-plan kitchens, larger dining areas or multi-functional family rooms.",
         href: "/house-extentions",
       },
       {
@@ -290,7 +304,7 @@ export const areas: Area[] = [
       },
       {
         title: "Kitchen & Bathrooms",
-        body: "In many Oxford extensions, the kitchen becomes the focal point of a new open-plan rear space. We help ensure layouts maximise natural light, garden access and practical storage – particularly important in terraced and semi-detached homes where space efficiency matters.",
+        body: "In many Oxford extensions, the kitchen becomes the focal point of a new open-plan rear space. We help ensure layouts maximise natural light, garden access and practical storage, particularly important in terraced and semi-detached homes where space efficiency matters.",
         href: "/kitchens-and-bathrooms",
       },
       {
@@ -309,7 +323,7 @@ export const areas: Area[] = [
       "Oxford is Oxfordshire's historic county town and one of the most recognised cities in the world, famed for the University of Oxford's medieval colleges and the honey-coloured ‘dreaming spires’ that define its skyline.",
       "The city blends grand academic architecture with characterful residential areas such as Jericho, Headington and Cowley, alongside the rivers Thames and Cherwell, which wind through the centre and support popular green spaces like Port Meadow and the University Parks.",
       "Oxford benefits from strong transport links, with the M40 and A34 connecting to London and the Midlands, and fast rail services from Oxford station reaching London Paddington in around an hour.",
-      "With excellent schools, a thriving covered market and a strong professional and academic population, Oxford remains one of the most sought-after — and competitive — property markets in the South East.",
+      "With excellent schools, a thriving covered market and a strong professional and academic population, Oxford remains one of the most sought-after, and competitive, property markets in the South East.",
     ],
     showFaqs: true,
     faqSubheading: "Common Questions - Oxfordshire",
@@ -323,7 +337,7 @@ export const areas: Area[] = [
       "At P&F Domestic Solutions, we are proud to deliver high-quality, reliable building services in Hillingdon and the surrounding areas including both Harrow and Beaconsfield.",
       "Founded by experienced tradesmen Paul Flynn and Frankie Coppins, our company brings over 40 years of combined industry experience to every project. From planning through to completion, we provide building solutions built on trust, skill, and outstanding workmanship.",
       "We are a trusted name in Hillingdon for all types of domestic construction and refurbishment work. Whether you’re updating a single room or carrying out a full home transformation, we approach every project with care, precision, and professionalism.",
-      "Our in-house team includes qualified builders, electricians, plumbers, plasterers, and decorators – offering a complete, end-to-end service under one roof.",
+      "Our in-house team includes qualified builders, electricians, plumbers, plasterers, and decorators, offering a complete, end-to-end service under one roof.",
     ],
     serviceHighlights: [
       {
@@ -333,7 +347,7 @@ export const areas: Area[] = [
       },
       {
         title: "Loft Conversions",
-        body: "Maximise your home’s potential with a loft conversion tailored to your lifestyle – perfect for an extra bedroom, office, or bathroom.",
+        body: "Maximise your home’s potential with a loft conversion tailored to your lifestyle: perfect for an extra bedroom, office, or bathroom.",
         href: "/loft-conversions",
       },
       {
@@ -351,7 +365,7 @@ export const areas: Area[] = [
       },
     ],
     outro: [
-      "At P&F Domestic Solutions, customer satisfaction is our top priority. We work cleanly, efficiently, and with minimal disruption – delivering projects on time and within budget. Every job is completed with meticulous attention to detail and a focus on long-lasting quality.",
+      "At P&F Domestic Solutions, customer satisfaction is our top priority. We work cleanly, efficiently, and with minimal disruption, delivering projects on time and within budget. Every job is completed with meticulous attention to detail and a focus on long-lasting quality.",
       "If you’re searching for dependable, professional building services in Hillingdon, contact P&F Domestic Solutions today for a free, no-obligation quote. Let’s build something great together.",
     ],
     townHeading: "Hillingdon Town",
@@ -422,7 +436,7 @@ export const areas: Area[] = [
       "At P&F Domestic Solutions, we are proud to provide high-quality, reliable building services in Beaconsfield and the vast surrounding areas including Harrow and Hillingdon.",
       "Founded by experienced tradesmen Paul Flynn and Frankie Coppins, our company brings over 40 years of combined expertise to every project. From initial planning through to the final touches, we deliver tailored building solutions that are built on trust, skill, and exceptional craftsmanship.",
       "We are a trusted name in Beaconsfield for all types of domestic construction and refurbishment work. Whether you’re renovating a single room or planning a full property transformation, we take a hands-on approach to ensure everything is completed to the highest standards.",
-      "Our team is made up of qualified builders, electricians, plumbers, plasterers, and decorators – offering you a truly complete service under one roof.",
+      "Our team is made up of qualified builders, electricians, plumbers, plasterers, and decorators, offering you a truly complete service under one roof.",
     ],
     serviceHighlights: [
       {
@@ -450,7 +464,7 @@ export const areas: Area[] = [
       },
     ],
     outro: [
-      "At P&F Domestic Solutions, customer satisfaction is at the heart of what we do. We work cleanly, efficiently, and respectfully – minimising disruption while delivering outstanding results. All our projects are completed on time, within budget, and with the utmost attention to detail.",
+      "At P&F Domestic Solutions, customer satisfaction is at the heart of what we do. We work cleanly, efficiently, and respectfully, minimising disruption while delivering outstanding results. All our projects are completed on time, within budget, and with the utmost attention to detail.",
       "If you’re looking for trusted, professional building services in Beaconsfield, get in touch with P&F Domestic Solutions today for a free, no-obligation quote. Let’s build something great together.",
     ],
     townHeading: "Expert Domestic Building Services in Beaconsfield",
@@ -498,12 +512,12 @@ export const areas: Area[] = [
       },
       {
         title: "Garage Conversions",
-        body: "Many homes in Marlow and surrounding areas include underused garages. Converting this space offers a cost-effective way to create an additional room without extending the footprint of your property – ideal for offices, playrooms or guest spaces.",
+        body: "Many homes in Marlow and surrounding areas include underused garages. Converting this space offers a cost-effective way to create an additional room without extending the footprint of your property: ideal for offices, playrooms or guest spaces.",
         href: "/garage-conversions",
       },
       {
         title: "Kitchen & Bathrooms",
-        body: "In many Marlow extensions, the kitchen becomes the focal point of the home. We design layouts that maximise natural light, improve garden access, and optimise storage – particularly important in homes where space needs to work harder.",
+        body: "In many Marlow extensions, the kitchen becomes the focal point of the home. We design layouts that maximise natural light, improve garden access, and optimise storage, particularly important in homes where space needs to work harder.",
         href: "/kitchens-and-bathrooms",
       },
       {
@@ -531,10 +545,255 @@ export const areas: Area[] = [
         "Marlow is an affluent market town in Buckinghamshire, set on a bend of the River Thames and known for its handsome Georgian High Street and the elegant Marlow Suspension Bridge, designed by the same engineer behind Clifton Suspension Bridge.",
         "The town has a strong reputation for its food scene, including several Michelin-starred restaurants, alongside independent shops, riverside walks and Higginson Park, which hosts the annual Marlow Regatta.",
         "Well placed for commuters, Marlow sits close to the M40 and M4, with train services connecting via Maidenhead to London Paddington in around 40 minutes.",
-        "Popular with families and professionals alike, Marlow offers a sought-after mix of period cottages, riverside properties and new developments, making it one of Buckinghamshire's most desirable — and competitive — places to live.",
+        "Popular with families and professionals alike, Marlow offers a sought-after mix of period cottages, riverside properties and new developments, making it one of Buckinghamshire's most desirable, and competitive, places to live.",
       ],
       showFaqs: true,
       faqSubheading: "Common Questions - Marlow",
+  },
+  {
+    slug: "building-services-in-gerrards-cross",
+    name: "Gerrards Cross",
+    navLabel: "Building Services In Gerrards Cross",
+    heading: "Building Services In Gerrards Cross",
+    intro: [
+      "At P&F Domestic Solutions, we are proud to offer high-quality building services in Gerrards Cross and the surrounding area, including Beaconsfield and the Chalfonts.",
+      "With over 40 years of combined experience, our expert team, led by founders Paul Flynn and Frankie Coppins, is dedicated to delivering exceptional results for homes across South Buckinghamshire.",
+      "Whether you're looking to extend your home, refurbish a property, or undertake general building work, we provide a full range of services tailored to meet your specific needs.",
+      "Our team includes experienced tradespeople across every discipline (electricians, plumbers, builders, plasterers and carpenters), ensuring every project is completed to the highest standard of craftsmanship.",
+    ],
+    serviceHighlights: [
+      {
+        title: "Home Extensions",
+        body: "Whether you need more space for a growing family or want to create a home office, we specialise in beautiful and functional home extensions that integrate seamlessly with Gerrards Cross's period and architect-designed homes.",
+        href: "/house-extentions",
+      },
+      {
+        title: "Loft Conversions",
+        body: "Transform your unused attic space into a stylish and practical room. We offer loft conversions that maximise your home's potential, creating extra bedrooms, offices, or living spaces.",
+        href: "/loft-conversions",
+      },
+      {
+        title: "Full House Refurbishments",
+        body: "From modernising a single room to a complete property overhaul, we offer full house refurbishments that bring new life to your home with quality renovations and smart design solutions.",
+        href: "/house-refurbishments",
+      },
+      {
+        title: "Plumbing and Electrical Services",
+        body: "Our highly skilled plumbers and electricians are on hand to tackle any plumbing or electrical issue, ensuring all installations and repairs meet the highest safety standards.",
+      },
+      {
+        title: "General Building and Property Maintenance",
+        body: "From minor repairs to major construction work, we provide a wide range of general building services, plus ongoing property maintenance to keep your home in excellent condition.",
+      },
+    ],
+    outro: [
+      "At P&F Domestic Solutions, we pride ourselves on our professionalism, attention to detail, and commitment to client satisfaction. We understand that building projects can be disruptive, which is why we work efficiently and respectfully, minimising any inconvenience to you and your family.",
+      "If you're looking for reliable, expert building services in Gerrards Cross, contact P&F Domestic Solutions today for a free consultation. Let us help you create the home of your dreams with top-tier construction services you can trust.",
+    ],
+    townHeading: "Gerrards Cross Town",
+    townMapQuery: "Gerrards Cross",
+    townParagraphs: [
+      "Gerrards Cross is an affluent Buckinghamshire town set on the lower slopes of the Chiltern Hills, known locally for its grand homes and leafy, village-like feel despite being just 19 miles from central London.",
+      "The town is well served by Gerrards Cross station on the Chiltern Main Line, with fast services reaching London Marylebone in around 20 minutes, alongside easy access to the M25 and M40 for the wider region.",
+      "Landmarks include St James' Church and the nearby Bulstrode Park, while the town centre offers a good range of independent shops, cafés and restaurants around the main crossroads.",
+      "With its mix of period and architect-designed homes, Gerrards Cross remains one of the most sought-after, and competitive, places to live in South Buckinghamshire.",
+    ],
+  },
+  {
+    slug: "building-services-in-the-chalfonts",
+    name: "The Chalfonts",
+    navLabel: "Building Services In The Chalfonts",
+    heading: "Building Services In The Chalfonts",
+    intro: [
+      "At P&F Domestic Solutions, we are proud to offer high-quality building services across the Chalfonts (Chalfont St Peter and Chalfont St Giles) and the surrounding area, including Gerrards Cross and Amersham.",
+      "With over 40 years of combined experience, our expert team, led by founders Paul Flynn and Frankie Coppins, is dedicated to delivering exceptional results for homes across this part of the Chiltern Hills.",
+      "Whether you're looking to extend your home, refurbish a property, or undertake general building work, we provide a full range of services tailored to meet your specific needs.",
+      "Our team includes experienced tradespeople across every discipline (electricians, plumbers, builders, plasterers and carpenters), ensuring every project is completed with care and attention to the area's many period and character homes.",
+    ],
+    serviceHighlights: [
+      {
+        title: "Home Extensions",
+        body: "Whether you need more space for a growing family or want to create a home office, we specialise in beautiful and functional home extensions that respect the character of the Chalfonts' period cottages and village homes.",
+        href: "/house-extentions",
+      },
+      {
+        title: "Loft Conversions",
+        body: "Transform your unused attic space into a stylish and practical room. We offer loft conversions that maximise your home's potential, creating extra bedrooms, offices, or living spaces.",
+        href: "/loft-conversions",
+      },
+      {
+        title: "Full House Refurbishments",
+        body: "From modernising a single room to a complete property overhaul, we offer full house refurbishments that bring new life to your home with quality renovations and smart design solutions.",
+        href: "/house-refurbishments",
+      },
+      {
+        title: "Plumbing and Electrical Services",
+        body: "Our highly skilled plumbers and electricians are on hand to tackle any plumbing or electrical issue, ensuring all installations and repairs meet the highest safety standards.",
+      },
+      {
+        title: "General Building and Property Maintenance",
+        body: "From minor repairs to major construction work, we provide a wide range of general building services, plus ongoing property maintenance to keep your home in excellent condition.",
+      },
+    ],
+    outro: [
+      "At P&F Domestic Solutions, we pride ourselves on our professionalism, attention to detail, and commitment to client satisfaction. We understand that building projects can be disruptive, which is why we work efficiently and respectfully, minimising any inconvenience to you and your family.",
+      "If you're looking for reliable, expert building services in the Chalfonts, contact P&F Domestic Solutions today for a free consultation. Let us help you create the home of your dreams with top-tier construction services you can trust.",
+    ],
+    townHeading: "Chalfont St Peter & Chalfont St Giles",
+    townMapQuery: "Chalfont st peter",
+    townParagraphs: [
+      "The Chalfonts (Chalfont St Peter and Chalfont St Giles) are classic Buckinghamshire villages set in the Chiltern Hills, known for half-timbered cottages, village greens and a strongly preserved historic character.",
+      "Chalfont St Giles is particularly notable as the home of poet John Milton, who completed Paradise Lost at Milton's Cottage, still standing today as one of the village's key landmarks.",
+      "Transport links are strong: Chalfont & Latimer station offers Metropolitan line services into Baker Street in around 40 minutes, while nearby Gerrards Cross station reaches London Marylebone in under 25 minutes, with the M25 and M40 both close by.",
+      "The area's mix of period cottages, village character and countryside setting makes it a popular, and highly sought-after, choice for families and commuters alike.",
+    ],
+  },
+  {
+    slug: "building-services-in-amersham",
+    name: "Amersham",
+    navLabel: "Building Services In Amersham",
+    heading: "Building Services In Amersham",
+    intro: [
+      "At P&F Domestic Solutions, we are proud to offer high-quality building services in Amersham and the surrounding area, including Chesham and the Chalfonts.",
+      "With over 40 years of combined experience, our expert team, led by founders Paul Flynn and Frankie Coppins, is dedicated to delivering exceptional results for both Old Amersham's period properties and the family homes of Amersham-on-the-Hill.",
+      "Whether you're looking to extend your home, refurbish a property, or undertake general building work, we provide a full range of services tailored to meet your specific needs.",
+      "Our team includes experienced tradespeople across every discipline (electricians, plumbers, builders, plasterers and carpenters), offering a complete, end-to-end service under one roof.",
+    ],
+    serviceHighlights: [
+      {
+        title: "Home Extensions",
+        body: "Whether you need more space for a growing family or want to create a home office, we specialise in beautiful and functional home extensions that integrate seamlessly with Amersham's mix of period and modern homes.",
+        href: "/house-extentions",
+      },
+      {
+        title: "Loft Conversions",
+        body: "Transform your unused attic space into a stylish and practical room. We offer loft conversions that maximise your home's potential, creating extra bedrooms, offices, or living spaces.",
+        href: "/loft-conversions",
+      },
+      {
+        title: "Full House Refurbishments",
+        body: "From modernising a single room to a complete property overhaul, we offer full house refurbishments that bring new life to your home with quality renovations and smart design solutions.",
+        href: "/house-refurbishments",
+      },
+      {
+        title: "Plumbing and Electrical Services",
+        body: "Our highly skilled plumbers and electricians are on hand to tackle any plumbing or electrical issue, ensuring all installations and repairs meet the highest safety standards.",
+      },
+      {
+        title: "General Building and Property Maintenance",
+        body: "From minor repairs to major construction work, we provide a wide range of general building services, plus ongoing property maintenance to keep your home in excellent condition.",
+      },
+    ],
+    outro: [
+      "At P&F Domestic Solutions, we pride ourselves on our professionalism, attention to detail, and commitment to client satisfaction. We understand that building projects can be disruptive, which is why we work efficiently and respectfully, minimising any inconvenience to you and your family.",
+      "If you're looking for reliable, expert building services in Amersham, contact P&F Domestic Solutions today for a free consultation. Let us help you create the home of your dreams with top-tier construction services you can trust.",
+    ],
+    townHeading: "Amersham Town",
+    townMapQuery: "Amersham",
+    townParagraphs: [
+      "Amersham is a historic Buckinghamshire market town in the Chiltern Hills, split between two distinct areas: Old Amersham, with its medieval high street, coaching inns and 13th-century church, and Amersham-on-the-Hill, which grew up around the railway station and now has a bustling high street of independent shops and restaurants.",
+      "Landmarks in the Old Town include the Grade I-listed St Mary's Church, the 17th-century Market Hall, and the Amersham Museum, which tells the story of the town's history.",
+      "Amersham is well connected, with Amersham station offering both Metropolitan line and Chiltern Railways services into central London, plus easy access to the wider Chiltern Hills and the M25/M40.",
+      "The blend of historic character in the Old Town and everyday convenience in the New Town makes Amersham a popular choice for families, professionals and commuters.",
+    ],
+  },
+  {
+    slug: "building-services-in-chorleywood",
+    name: "Chorleywood",
+    navLabel: "Building Services In Chorleywood",
+    heading: "Building Services In Chorleywood",
+    intro: [
+      "At P&F Domestic Solutions, we are proud to offer high-quality building services in Chorleywood and the surrounding area, including Rickmansworth and the Chalfonts.",
+      "With over 40 years of combined experience, our expert team, led by founders Paul Flynn and Frankie Coppins, is dedicated to delivering exceptional results for homes around Chorleywood Common and beyond.",
+      "Whether you're looking to extend your home, refurbish a property, or undertake general building work, we provide a full range of services tailored to meet your specific needs.",
+      "Our team includes experienced tradespeople across every discipline (electricians, plumbers, builders, plasterers and carpenters), ensuring every project is completed to the highest standard of craftsmanship.",
+    ],
+    serviceHighlights: [
+      {
+        title: "Home Extensions",
+        body: "Whether you need more space for a growing family or want to create a home office, we specialise in beautiful and functional home extensions that add space and value without losing Chorleywood's village feel.",
+        href: "/house-extentions",
+      },
+      {
+        title: "Loft Conversions",
+        body: "Transform your unused attic space into a stylish and practical room. We offer loft conversions that maximise your home's potential, creating extra bedrooms, offices, or living spaces.",
+        href: "/loft-conversions",
+      },
+      {
+        title: "Full House Refurbishments",
+        body: "From modernising a single room to a complete property overhaul, we offer full house refurbishments that bring new life to your home with quality renovations and smart design solutions.",
+        href: "/house-refurbishments",
+      },
+      {
+        title: "Plumbing and Electrical Services",
+        body: "Our highly skilled plumbers and electricians are on hand to tackle any plumbing or electrical issue, ensuring all installations and repairs meet the highest safety standards.",
+      },
+      {
+        title: "General Building and Property Maintenance",
+        body: "From minor repairs to major construction work, we provide a wide range of general building services, plus ongoing property maintenance to keep your home in excellent condition.",
+      },
+    ],
+    outro: [
+      "At P&F Domestic Solutions, we pride ourselves on our professionalism, attention to detail, and commitment to client satisfaction. We understand that building projects can be disruptive, which is why we work efficiently and respectfully, minimising any inconvenience to you and your family.",
+      "If you're looking for reliable, expert building services in Chorleywood, contact P&F Domestic Solutions today for a free consultation. Let us help you create the home of your dreams with top-tier construction services you can trust.",
+    ],
+    townHeading: "Chorleywood Village",
+    townMapQuery: "Chorleywood",
+    townParagraphs: [
+      "Chorleywood is a Hertfordshire village on the edge of the Chiltern Hills, built around one of the largest and best-preserved commons in the area: Chorleywood Common, a 200-acre Local Nature Reserve popular with dog walkers, golfers and families.",
+      "The village is well known for its distinctive church spire overlooking the common, and for its excellent transport links: Chorleywood station sits on the Metropolitan line and Chiltern Railways, with fast services to London and easy access to Junction 18 of the M25.",
+      "Chorleywood has a strong village feel with a good range of local shops, cafés and schools, and remains a popular choice for families wanting Chiltern countryside on London's doorstep.",
+      "Its combination of green space, connectivity and community character makes it one of the most desirable villages in this part of Hertfordshire.",
+    ],
+  },
+  {
+    slug: "building-services-in-great-missenden",
+    name: "Great Missenden",
+    navLabel: "Building Services In Great Missenden",
+    heading: "Building Services In Great Missenden",
+    intro: [
+      "At P&F Domestic Solutions, we are proud to offer high-quality building services in Great Missenden and the surrounding area, including Amersham and Wendover.",
+      "With over 40 years of combined experience, our expert team, led by founders Paul Flynn and Frankie Coppins, is dedicated to delivering exceptional results for homes across this part of the Chilterns.",
+      "Whether you're looking to extend your home, refurbish a property, or undertake general building work, we provide a full range of services tailored to meet your specific needs.",
+      "Our team includes experienced tradespeople across every discipline (electricians, plumbers, builders, plasterers and carpenters), ensuring every project is completed with care for the village's historic high street and surrounding homes.",
+    ],
+    serviceHighlights: [
+      {
+        title: "Home Extensions",
+        body: "Whether you need more space for a growing family or want to create a home office, we specialise in beautiful and functional home extensions that integrate seamlessly with Great Missenden's period and village homes.",
+        href: "/house-extentions",
+      },
+      {
+        title: "Loft Conversions",
+        body: "Transform your unused attic space into a stylish and practical room. We offer loft conversions that maximise your home's potential, creating extra bedrooms, offices, or living spaces.",
+        href: "/loft-conversions",
+      },
+      {
+        title: "Full House Refurbishments",
+        body: "From modernising a single room to a complete property overhaul, we offer full house refurbishments that bring new life to your home with quality renovations and smart design solutions.",
+        href: "/house-refurbishments",
+      },
+      {
+        title: "Plumbing and Electrical Services",
+        body: "Our highly skilled plumbers and electricians are on hand to tackle any plumbing or electrical issue, ensuring all installations and repairs meet the highest safety standards.",
+      },
+      {
+        title: "General Building and Property Maintenance",
+        body: "From minor repairs to major construction work, we provide a wide range of general building services, plus ongoing property maintenance to keep your home in excellent condition.",
+      },
+    ],
+    outro: [
+      "At P&F Domestic Solutions, we pride ourselves on our professionalism, attention to detail, and commitment to client satisfaction. We understand that building projects can be disruptive, which is why we work efficiently and respectfully, minimising any inconvenience to you and your family.",
+      "If you're looking for reliable, expert building services in Great Missenden, contact P&F Domestic Solutions today for a free consultation. Let us help you create the home of your dreams with top-tier construction services you can trust.",
+    ],
+    townHeading: "Great Missenden Village",
+    townMapQuery: "Great Missenden",
+    townParagraphs: [
+      "Great Missenden is a picturesque Buckinghamshire village in the Chiltern Hills, about 20 miles northwest of London, best known as the long-time home of author Roald Dahl, who lived and wrote there for 36 years.",
+      "The Roald Dahl Museum and Story Centre, housed in a former coaching inn on the high street, celebrates his life and work, while much of the surrounding countryside inspired settings in his stories.",
+      "The village sits on the Chiltern Railways line between London Marylebone and Aylesbury, giving good rail links, alongside easy access to the wider Chiltern Hills Area of Outstanding Natural Beauty.",
+      "With its historic high street, strong sense of literary heritage and countryside setting, Great Missenden is a popular choice for families and homeowners looking for village character within reach of London.",
+    ],
   },
 ];
 
@@ -552,16 +811,36 @@ export const coverageTowns: { name: string; mapQuery: string; href?: string }[] 
       mapQuery: "Hillingdon",
       href: "/building-services-in-hillingdon",
     },
-    { name: "Gerrards Cross", mapQuery: "Gerrards Cross" },
-    { name: "The Chalfonts", mapQuery: "Chalfont st peter" },
-    { name: "Amersham", mapQuery: "Amersham" },
+    {
+      name: "Gerrards Cross",
+      mapQuery: "Gerrards Cross",
+      href: "/building-services-in-gerrards-cross",
+    },
+    {
+      name: "The Chalfonts",
+      mapQuery: "Chalfont st peter",
+      href: "/building-services-in-the-chalfonts",
+    },
+    {
+      name: "Amersham",
+      mapQuery: "Amersham",
+      href: "/building-services-in-amersham",
+    },
     {
       name: "Marlow",
       mapQuery: "Marlow",
       href: "/building-services-in-marlow",
     },
-    { name: "Chorleywood", mapQuery: "Chorleywood" },
-    { name: "Great Missenden", mapQuery: "Great Missenden" },
+    {
+      name: "Chorleywood",
+      mapQuery: "Chorleywood",
+      href: "/building-services-in-chorleywood",
+    },
+    {
+      name: "Great Missenden",
+      mapQuery: "Great Missenden",
+      href: "/building-services-in-great-missenden",
+    },
     { name: "Oxford", mapQuery: "Oxford", href: "/building-services-in-oxford" },
   ];
 
@@ -578,7 +857,7 @@ export const posts = [
       "House Extensions in Oxfordshire: Everything You Need to Know Before You Start",
     href: "https://pfdomesticsolutions.com/house-extensions-in-oxfordshire-everything-you-need-to-know-before-you-start/",
     excerpt:
-      "Planning house extensions in Oxford can add space, value and flexibility to your home — here's what to consider before you start.",
+      "Planning house extensions in Oxford can add space, value and flexibility to your home. Here's what to consider before you start.",
   },
   {
     title: "Top Customer Complaints and Praise for Builders in Harrow",
@@ -611,7 +890,7 @@ export const navServices = services.map((s) => ({
 export const navAreas = areas
   .filter((a) => a.showInNav !== false)
   .map((a) => ({
-    label: a.navLabel,
+    label: a.name,
     href: `/${a.slug}`,
   }));
 
@@ -651,7 +930,7 @@ export const home = {
   hero: {
     headline: "Building and Construction Services",
     strapline:
-      "Transforming Homes Across London - Building with Integrity, Delivering with Pride",
+      "Led by Paul & Frankie with over 40 years of combined trade experience, transforming homes across London and the Home Counties with integrity.",
     primaryCta: { label: `CALL NOW ${site.phone}`, href: site.phoneHref },
     secondaryCta: { label: "Get a FREE Quote", href: "/contact-us" },
   },
@@ -669,6 +948,22 @@ export const home = {
     heading: "About P&F Domestic Solutions",
     body: "At P&F Domestic Solutions, we are committed to delivering high-quality building and refurbishment services with professionalism, integrity, and reliability. Based in Harrow, we proudly serve clients across London and the Home Counties, offering expert craftsmanship across a wide range of trades.",
     cta: { label: "Find out more", href: "/about" },
+  },
+  projectsTeaser: {
+    kicker: "OUR WORK",
+    heading: "Recent Projects",
+    intro:
+      "A selection of completed builds: extensions, kitchens, outdoor spaces and more. Browse a project for photos, or view the full gallery for similar work.",
+    /** Curated subset of case-study `gallery.projects` slugs shown on the homepage. */
+    slugs: [
+      "house-extension",
+      "garden-room-evening",
+      "kitchen-renovation",
+      "accessible-wet-room",
+      "garden-landscaping",
+      "bespoke-joinery",
+    ],
+    cta: { label: "View Project Gallery", href: "/project-gallery" },
   },
 };
 
@@ -720,7 +1015,7 @@ export const about = {
       },
     ],
   },
-  cta: "Get in touch today to discuss your project – we look forward to working with you!",
+  cta: "Get in touch today to discuss your project. We look forward to working with you!",
 };
 
 export type ProcessStep = { step: number; title: string; body: string };
@@ -737,7 +1032,7 @@ export const process = {
     {
       step: 1,
       title: "Free Consultation",
-      body: "We visit your home to discuss your ideas, assess the site and talk through what's achievable — no obligation, no pressure.",
+      body: "We visit your home to discuss your ideas, assess the site and talk through what's achievable, with no obligation and no pressure.",
     },
     {
       step: 2,
@@ -789,163 +1084,561 @@ export const contact = {
   redirectTo: "/thank-you",
 };
 
+export type GalleryImage = {
+  src: string;
+  alt: string;
+  /** Optional label under the photo (e.g. Before / After). */
+  caption?: string;
+};
+
 export type GalleryProject = {
+  slug: string;
   title: string;
-  image: string;
-  /** Descriptive alt; defaults to title in the grid. */
-  alt?: string;
+  /** Optional town/area when known — omit rather than invent. */
+  location?: string;
+  /** Short summary for the gallery card and page intro. */
+  summary: string;
+  /** Longer case-study body (1–3 short paragraphs). Unused when `galleryOnly`. */
+  body: string[];
+  /** Related service page slug (from `services`). */
+  serviceSlug: string;
+  /** Hero / gallery-card image (first image is used if omitted). */
+  heroImage?: string;
+  images: GalleryImage[];
+  /**
+   * When true, the image appears on `/project-gallery` but has no
+   * `/project-gallery/[slug]` case-study page (and is omitted from the sitemap).
+   */
+  galleryOnly?: boolean;
 };
 
 export const gallery = {
   heading: "Project Gallery",
   intro:
-    "Take a look at some of our previous works. Contact us today to find out what we can do for you.",
-  // Curated finished (or near-finished) job photos — not every site snap or video.
+    "Browse a selection of our completed work. Open a project for more photos and details where available, or get in touch to discuss yours.",
+  // One card per job; multi-photo jobs link to a case study. galleryOnly cards stay on this grid.
   projects: [
     {
+      slug: "house-extension",
       title: "House Extension",
-      image:
+      summary:
+        "A single-storey rear extension with rendered walls, bifold doors and a finished flat roof, opening the home to the garden.",
+      body: [
+        "This rear extension added bright, open-plan living space with large bifold doors, a clean rendered finish and a fully weatherproofed flat roof.",
+        "From structure through to final finishes, the build was designed to sit comfortably with the existing house while giving the family a more usable connection to the garden.",
+      ],
+      serviceSlug: "house-extentions",
+      heroImage:
         "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-01.jpeg",
-      alt: "Finished rendered house extension exterior",
+      images: [
+        {
+          src: "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-01.jpeg",
+          alt: "Finished rendered house extension exterior with bifold doors",
+        },
+        {
+          src: "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-02.jpeg",
+          alt: "Rendered house extension rear elevation",
+        },
+        {
+          src: "/Job-Photos/House-Extension-Build/Extension-Interior-Open-Plan-Skylight.jpeg",
+          alt: "Open-plan house extension interior with skylight",
+        },
+        {
+          src: "/Job-Photos/House-Extension-Build/Extension-Flat-Roof-Finished-Gutter-View.jpeg",
+          alt: "Finished flat roof and gutter on house extension",
+        },
+        {
+          src: "/Job-Photos/House-Extension-Build/Extension-Flat-Roof-Finished-Birdseye-View.jpeg",
+          alt: "Finished flat roof birdseye view on house extension",
+        },
+      ],
     },
     {
-      title: "House Extension",
-      image:
-        "/Job-Photos/House-Extension-Build/Extension-Rendered-Exterior-Finished-02.jpeg",
-      alt: "Rendered house extension rear elevation",
+      slug: "extension-doorway-plaster",
+      title: "Doorway Plastered Reveals",
+      summary:
+        "Fresh plaster on a new partition wall and doorway reveals, ready for decoration.",
+      body: [
+        "These photos show a new internal partition after finishing plaster: smooth wall faces and carefully formed doorway reveals with a timber lining fitted.",
+        "Work of this kind sits between first-fix carpentry and decoration, leaving a clean hand-over for paint and flooring.",
+      ],
+      serviceSlug: "house-extentions",
+      heroImage:
+        "/Job-Photos/Extension-Interior-Fit-Out/Extension-Doorway-Plastered-Reveal-View1.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Extension-Doorway-Plastered-Reveal-View1.jpeg",
+          alt: "Plastered doorway reveal in extension interior",
+        },
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Extension-Doorway-Plastered-Reveal-View2.jpeg",
+          alt: "Plastered partition doorway beside utility area",
+        },
+      ],
     },
     {
-      title: "Extension Interior",
-      image:
-        "/Job-Photos/House-Extension-Build/Extension-Interior-Open-Plan-Skylight.jpeg",
-      alt: "Open-plan house extension interior with skylight",
+      slug: "first-fix-electrics",
+      title: "First-Fix Electrics & Insulation",
+      summary:
+        "Ceiling insulation, cable runs and opening-up during first-fix interior work.",
+      body: [
+        "These shots capture first-fix stage work: mineral wool in the ceiling grid, cable runs through openings, and rooms stripped back ready for boarding and plaster.",
+        "Getting services and insulation right at this stage sets up a clean second-fix finish later.",
+      ],
+      serviceSlug: "house-extentions",
+      heroImage:
+        "/Job-Photos/Extension-Interior-Fit-Out/Interior-First-Fix-Electrics-Stud-Wall.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Interior-First-Fix-Electrics-Stud-Wall.jpeg",
+          alt: "First-fix electrics and ceiling insulation in progress",
+        },
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Interior-First-Fix-Wall-Corridor.jpeg",
+          alt: "First-fix corridor opening with insulation and cabling",
+        },
+      ],
     },
     {
-      title: "Extension Flat Roof",
-      image:
-        "/Job-Photos/House-Extension-Build/Extension-Flat-Roof-Finished-Gutter-View.jpeg",
-      alt: "Finished flat roof and gutter on house extension",
-    },
-    {
-      title: "Extension Fit-Out",
-      image:
+      slug: "extension-flooring-garden-doors",
+      title: "Flooring at Garden Doors",
+      summary:
+        "Timber-to-tile flooring transition alongside white garden doors.",
+      body: [],
+      serviceSlug: "house-extentions",
+      heroImage:
         "/Job-Photos/Extension-Interior-Fit-Out/Flooring-Transition-Garden-Doors.jpeg",
-      alt: "Flooring transition to garden doors in extension fit-out",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Flooring-Transition-Garden-Doors.jpeg",
+          alt: "Flooring transition to garden doors in extension fit-out",
+        },
+      ],
+      galleryOnly: true,
     },
     {
-      title: "Extension Fit-Out",
-      image:
+      slug: "plastered-bay-window",
+      title: "Plastered Bay Window",
+      summary:
+        "Fresh finish plaster around a leaded bay window, ready for decoration.",
+      body: [],
+      serviceSlug: "house-extentions",
+      heroImage:
         "/Job-Photos/Extension-Interior-Fit-Out/Interior-Plastered-Room-Bay-Window.jpeg",
-      alt: "Plastered extension room with bay window",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Interior-Plastered-Room-Bay-Window.jpeg",
+          alt: "Plastered extension room with bay window",
+        },
+      ],
+      galleryOnly: true,
     },
     {
-      title: "Garden Room",
-      image:
-        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
-      alt: "Finished garden room with painted cladding",
+      slug: "ceiling-plastering",
+      title: "Ceiling Plastering",
+      summary:
+        "Finish plaster being applied to a plasterboard ceiling.",
+      body: [],
+      serviceSlug: "house-extentions",
+      heroImage:
+        "/Job-Photos/Extension-Interior-Fit-Out/Interior-Ceiling-Plastering-Repair.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Interior-Ceiling-Plastering-Repair.jpeg",
+          alt: "Ceiling plastering in progress on plasterboard",
+        },
+      ],
+      galleryOnly: true,
     },
     {
-      title: "Garden Room",
-      image:
-        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Front-Bifolds.jpeg",
-      alt: "Garden room exterior with bifold doors",
+      slug: "extension-plaster-interior",
+      title: "Plastered Extension Interior",
+      summary:
+        "Freshly plastered walls and ceiling in an extension opening to the garden.",
+      body: [],
+      serviceSlug: "house-extentions",
+      heroImage:
+        "/Job-Photos/Extension-Interior-Fit-Out/Reference-Screenshot-Ceiling-Plaster.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Extension-Interior-Fit-Out/Reference-Screenshot-Ceiling-Plaster.jpeg",
+          alt: "Plastered extension interior looking out to the garden",
+        },
+      ],
+      galleryOnly: true,
     },
     {
-      title: "Garden Room",
-      image:
-        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
-      alt: "Garden room French doors lit in the evening",
-    },
-    {
-      title: "Garden Room",
-      image:
+      slug: "garden-room-evening",
+      title: "Garden Rooms",
+      summary:
+        "Garden rooms and outdoor builds like this: insulated timber spaces with glazing and evening lighting.",
+      body: [
+        "We design and build garden rooms for year-round use: insulated, glazed and finished so they feel like a proper room rather than a shed.",
+        "This is one example from our outdoor work. Browse the project gallery for more garden rooms, studios and timber buildings in a similar vein.",
+      ],
+      serviceSlug: "garden-rooms",
+      heroImage:
         "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
-      alt: "Garden room exterior lit in the evening",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-01.jpeg",
+          alt: "Garden room exterior lit in the evening with deck",
+        },
+      ],
     },
     {
-      title: "Garden Room Interior",
-      image:
-        "/Job-Photos/Garden-Room-Build/Garden-Room-Interior-Empty-LED-Lighting.jpeg",
-      alt: "Garden room interior with LED lighting",
+      slug: "garden-room-timber-doors",
+      title: "Timber Garden Room",
+      summary:
+        "A vertical-timber garden room with anthracite French doors, exterior lighting and finished steps.",
+      body: [
+        "This garden room pairs vertical timber cladding with dark-framed French doors and modern wall lights: a bright outdoor room opening onto the lawn.",
+        "The steps and cladding were finished to match, ready for everyday use as a lounge or party space.",
+      ],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Front-Bifolds.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Front-Bifolds.jpeg",
+          alt: "Timber garden room with anthracite French doors",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Evening-Lit-02.jpeg",
+          alt: "Timber garden room exterior with doors open",
+        },
+      ],
     },
     {
+      slug: "garden-room-cedar-studio",
+      title: "Cedar Garden Studio",
+      summary:
+        "A cedar-clad garden studio with sliding doors, corner glazing, recessed lighting and LED strip interior.",
+      body: [
+        "This studio uses warm vertical cedar cladding, dark-framed sliding doors and a deep roof overhang with recessed spotlights.",
+        "Inside, perimeter LED lighting and a clean finish make it suitable as a home office, gym or quiet retreat.",
+      ],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Exterior-Corner-Windows.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Exterior-Corner-Windows.jpeg",
+          alt: "Cedar garden studio with sliding doors and corner window",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Interior-Empty-LED-Lighting.jpeg",
+          alt: "Garden studio interior with LED strip lighting",
+        },
+      ],
+    },
+    {
+      slug: "garden-room-build",
+      title: "Garden Room Build",
+      summary:
+        "A pitched-roof garden room from timber frame through cladding to a finished outbuilding on new paving.",
+      body: [
+        "These photos follow a garden room from open timber frame and roof felt through cladding and openings, to the completed outbuilding on freshly laid block paving.",
+        "The build sits behind the main house as a durable outdoor room with horizontal timber cladding and a pitched roof.",
+      ],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Site-Photo-Outbuilding.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Site-Photo-Outbuilding.jpeg",
+          alt: "Finished timber garden room on block paving",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Frame-Cladding-Evening.jpeg",
+          alt: "Garden room with cladding and roof felt during build",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Frame-Construction-Roof-Felt.jpeg",
+          alt: "Garden room timber frame with roof felt",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Frame-Construction-Roof-Trusses.jpeg",
+          alt: "Garden room timber frame and roof trusses",
+        },
+      ],
+    },
+    {
+      slug: "timber-garden-building",
+      title: "Timber Garden Building",
+      summary:
+        "A pitched-roof timber outbuilding with green French doors, lantern lights and tiled roof.",
+      body: [
+        "This timber garden building has horizontal cladding, a tiled pitched roof and bright green French doors with traditional lantern wall lights.",
+        "Side elevations show matching white-framed glazing: a finished outbuilding ready for garden use.",
+      ],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Timber-Garden-Shed-Green-Door.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Timber-Garden-Shed-Green-Door.jpeg",
+          alt: "Timber garden building with green French doors",
+        },
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Exterior-Side-Elevation-Tree.jpeg",
+          alt: "Timber garden building side elevation with tiled roof",
+        },
+      ],
+    },
+    {
+      slug: "garden-room-painted-cladding",
+      title: "Painted Cladding Garden Room",
+      summary:
+        "Finished garden room with painted vertical cladding, bifold doors and patio.",
+      body: [],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Painted-Cladding.jpeg",
+          alt: "Finished garden room with painted cladding and bifold doors",
+        },
+      ],
+      galleryOnly: true,
+    },
+    {
+      slug: "garden-room-white-evening",
+      title: "White Garden Room at Dusk",
+      summary:
+        "White-painted garden room with French doors and deck lighting at evening.",
+      body: [],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-French-Doors-Evening.webp",
+          alt: "White garden room French doors lit in the evening",
+        },
+      ],
+      galleryOnly: true,
+    },
+    {
+      slug: "garden-room-office",
+      title: "Garden Office",
+      summary:
+        "Vertical-timber garden office with glazed doors and tall side windows.",
+      body: [],
+      serviceSlug: "garden-rooms",
+      heroImage:
+        "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Fence-View.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Room-Build/Garden-Room-Finished-Exterior-Fence-View.jpeg",
+          alt: "Timber garden office with glazed doors by the fence",
+        },
+      ],
+      galleryOnly: true,
+    },
+    {
+      slug: "kitchen-renovation",
       title: "Kitchen Renovation",
-      image:
+      summary:
+        "A cream shaker kitchen with brick-effect tiling, worktops and under-cabinet lighting.",
+      body: [
+        "This kitchen renovation refreshed the heart of the home with cream shaker-style cabinetry, practical worktops and a brick-effect tiled splashback.",
+        "Lighting, layout and finishes were chosen for everyday use: a warm, durable space that feels modern without losing character.",
+      ],
+      serviceSlug: "kitchens-and-bathrooms",
+      heroImage:
         "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View1.jpeg",
-      alt: "Cream shaker kitchen renovation",
+      images: [
+        {
+          src: "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View1.jpeg",
+          alt: "Cream shaker kitchen renovation with brick splashback",
+        },
+        {
+          src: "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View2.jpeg",
+          alt: "Cream shaker kitchen renovation, wider view",
+        },
+      ],
     },
     {
-      title: "Kitchen Renovation",
-      image:
-        "/Job-Photos/Kitchen-Renovation-2025/Kitchen-Renovation-Cream-Shaker-View2.jpeg",
-      alt: "Cream shaker kitchen renovation, second view",
-    },
-    {
-      title: "Ensuite Bathroom",
-      image:
-        "/Job-Photos/Bathroom-Renovation-Other/Ensuite-Shower-Room-Renovation.jpeg",
-      alt: "Ensuite shower room renovation",
-    },
-    {
-      title: "Wet Room Bathroom",
-      image:
+      slug: "accessible-wet-room",
+      title: "Accessible Wet Room",
+      summary:
+        "An accessible wet room with level-access shower, grab rails, shower seat and heated towel rail.",
+      body: [
+        "This bathroom was converted into a fully accessible wet room, with a level-access shower, grab rails, a folding shower seat and fixtures chosen for safety and ease of use.",
+        "The result is a bright, tiled space that supports independent living without feeling clinical. Practical details are finished to a high standard.",
+      ],
+      serviceSlug: "kitchens-and-bathrooms",
+      heroImage:
         "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Grab-Rails-View1.jpeg",
-      alt: "Accessible wet room shower with grab rails",
+      images: [
+        {
+          src: "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Grab-Rails-View1.jpeg",
+          alt: "Accessible wet room shower with grab rails",
+        },
+        {
+          src: "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Grab-Rails-View2.jpeg",
+          alt: "Accessible wet room grab rails and tiled walls",
+        },
+        {
+          src: "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Sink-View.jpeg",
+          alt: "Accessible wet room shower and sink",
+        },
+        {
+          src: "/Job-Photos/Bathroom-Renovation-Other/Ensuite-Shower-Room-Renovation.jpeg",
+          alt: "Accessible wet room vanity, toilet and shower",
+        },
+        {
+          src: "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Bathroom-Heated-Towel-Rail.jpeg",
+          alt: "Accessible bathroom with heated towel rail",
+        },
+        {
+          src: "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Ceiling-Rain-Head.jpeg",
+          alt: "Accessible wet room shower with ceiling rain head",
+        },
+      ],
     },
     {
-      title: "Wet Room Bathroom",
-      image:
-        "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Shower-Sink-View.jpeg",
-      alt: "Accessible wet room shower and sink",
-    },
-    {
-      title: "Wet Room Bathroom",
-      image:
-        "/Job-Photos/Wet-Room-Bathroom-Renovation/Accessible-Bathroom-Heated-Towel-Rail.jpeg",
-      alt: "Accessible bathroom with heated towel rail",
-    },
-    {
+      slug: "garage-conversion",
       title: "Garage Conversion",
-      image:
+      summary:
+        "Bright open-plan interior during a garage conversion (gallery image only).",
+      body: [],
+      serviceSlug: "garage-conversions",
+      heroImage:
         "/Job-Photos/Garage-Conversion/Garage-Conversion-Interior-White-Loft-Room.webp",
-      alt: "Garage conversion interior living space",
+      images: [
+        {
+          src: "/Job-Photos/Garage-Conversion/Garage-Conversion-Interior-White-Loft-Room.webp",
+          alt: "Garage conversion interior living space",
+        },
+      ],
+      galleryOnly: true,
     },
     {
+      slug: "garden-landscaping",
       title: "Garden Landscaping",
-      image:
+      summary:
+        "Garden landscaping with lawn, planting borders, paths and outdoor lighting.",
+      body: [
+        "This landscaping project combined lawn, hedge-lined paths, gravel detailing and bollard lighting to create a more usable outdoor space.",
+        "Borders and planting soften the hard landscaping, while lighting extends the garden into the evening.",
+      ],
+      serviceSlug: "house-refurbishments",
+      heroImage:
         "/Job-Photos/Garden-Landscaping/Garden-Lawn-Hedge-Path-Bollard-Lights-01.jpeg",
-      alt: "Garden lawn, hedge path and bollard lights",
+      images: [
+        {
+          src: "/Job-Photos/Garden-Landscaping/Garden-Lawn-Hedge-Path-Bollard-Lights-01.jpeg",
+          alt: "Garden lawn, hedge path and bollard lights",
+        },
+        {
+          src: "/Job-Photos/Garden-Landscaping/Garden-Lawn-Hedge-Path-Bollard-Lights-02.jpeg",
+          alt: "Garden lawn and bollard lighting, second view",
+        },
+        {
+          src: "/Job-Photos/Garden-Landscaping/Garden-Fence-Border-Planting-Wide.jpeg",
+          alt: "Garden fence border planting",
+        },
+        {
+          src: "/Job-Photos/Garden-Landscaping/Garden-Fence-Border-Planting-Lighting.jpeg",
+          alt: "Garden border planting with lighting",
+        },
+        {
+          src: "/Job-Photos/Garden-Landscaping/Garden-Gravel-Path-Pool-Steps.jpeg",
+          alt: "Garden gravel path and pool steps",
+        },
+      ],
     },
     {
-      title: "Garden Landscaping",
-      image:
-        "/Job-Photos/Garden-Landscaping/Garden-Fence-Border-Planting-Wide.jpeg",
-      alt: "Garden fence border planting",
-    },
-    {
-      title: "Garden Landscaping",
-      image:
-        "/Job-Photos/Garden-Landscaping/Garden-Gravel-Path-Pool-Steps.jpeg",
-      alt: "Garden gravel path and pool steps",
-    },
-    {
+      slug: "bespoke-joinery",
       title: "Bespoke Joinery",
-      image: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View1.jpeg",
-      alt: "Bespoke storage bench joinery",
+      summary:
+        "Custom storage joinery: a built-in bench designed to fit the space and the home.",
+      body: [
+        "This bespoke storage bench was built to fit the room exactly: practical storage with a clean joinery finish that feels part of the home rather than an add-on.",
+      ],
+      serviceSlug: "house-refurbishments",
+      heroImage: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View1.jpeg",
+      images: [
+        {
+          src: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View1.jpeg",
+          alt: "Bespoke storage bench joinery",
+        },
+        {
+          src: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View2.jpeg",
+          alt: "Bespoke storage bench joinery, second view",
+        },
+        {
+          src: "/Job-Photos/Bespoke-Joinery/Bespoke-Storage-Bench-View3.jpeg",
+          alt: "Bespoke storage bench joinery, detail view",
+        },
+      ],
     },
     {
-      title: "Exterior Brick Painting",
-      image:
+      slug: "guttering-rain-collector",
+      title: "Guttering & Rain Collector",
+      summary:
+        "New guttering and rainwater goods on a side return, finished with a downpipe feeding a rain collector.",
+      body: [
+        "This job installed new guttering and rainwater goods on a side return, then connected a downpipe into a rain collector so run-off is captured neatly at the base of the wall.",
+        "The before and after photos show the incomplete setup beside the completed gutter, downpipe and rain collector installation.",
+      ],
+      serviceSlug: "house-refurbishments",
+      heroImage:
         "/Job-Photos/Exterior-Brick-Painting/Painted-Brick-Side-Return-Rear-View.jpeg",
-      alt: "Painted brick side return exterior",
+      images: [
+        {
+          src: "/Job-Photos/Exterior-Brick-Painting/Painted-Brick-Corner-Close-View.jpeg",
+          alt: "Before: side return with guttering started and rain collector in place, before the downpipe connection",
+          caption: "Before",
+        },
+        {
+          src: "/Job-Photos/Exterior-Brick-Painting/Painted-Brick-Side-Return-Rear-View.jpeg",
+          alt: "After: completed black guttering and downpipe feeding into a rain collector on the deck",
+          caption: "After",
+        },
+      ],
     },
   ] satisfies GalleryProject[],
 };
 
+export function getGalleryProject(slug: string): GalleryProject | undefined {
+  return gallery.projects.find((p) => p.slug === slug);
+}
+
+/** Case-study projects only (excludes `galleryOnly` entries). */
+export function galleryCaseStudyProjects(): GalleryProject[] {
+  return gallery.projects.filter((p) => !p.galleryOnly);
+}
+
+export function getGalleryCaseStudy(slug: string): GalleryProject | undefined {
+  const project = getGalleryProject(slug);
+  if (!project || project.galleryOnly) return undefined;
+  return project;
+}
+
+export function galleryProjectHero(project: GalleryProject): GalleryImage {
+  const heroSrc = project.heroImage ?? project.images[0]?.src;
+  const match = project.images.find((img) => img.src === heroSrc);
+  const hero = match ?? project.images[0];
+  if (!hero) {
+    throw new Error(`Gallery project "${project.slug}" has no images`);
+  }
+  return hero;
+}
+
+export function galleryProjectDisplayTitle(project: GalleryProject): string {
+  return project.location
+    ? `${project.title}, ${project.location}`
+    : project.title;
+}
+
 export const areasHub = {
-  heading: "Building Services in Harrow, Hillingdon & The Surrounding Areas",
+  heading: "Building Services in Oxford, Hertfordshire & The Surrounding Areas",
   intro:
-    "If you are also in the local area and cannot find where you live on this list don't worry – email admin@pfdomesticsolutions.com or call 07700 166128 and we will see if we can help.",
+    `If you are also in the local area and cannot find where you live on this list don't worry: email ${site.email} or call ${site.phone} and we will see if we can help.`,
 };
 
 export const newsPage = {
@@ -1049,8 +1742,8 @@ export const cookiePolicy = {
     {
       heading: "Cookies we use",
       body: [
-        "Strictly necessary — cookies required for the site’s core functionality, such as remembering your cookie preferences. These can’t be switched off without affecting how the site works.",
-        "Analytics — when enabled, we load Google Tag Manager, which runs Google Analytics (GA4) to understand how visitors use the site (pages viewed, time on page, referral source, approximate location, and device/browser type). We also use Microsoft Clarity for anonymised session recordings and heatmaps to improve usability. These tools only run once you’ve given consent via the cookie banner, and only when the relevant tracking IDs are configured.",
+        "Strictly necessary: cookies required for the site’s core functionality, such as remembering your cookie preferences. These can’t be switched off without affecting how the site works.",
+        "Analytics: when enabled, we load Google Tag Manager, which runs Google Analytics (GA4) to understand how visitors use the site (pages viewed, time on page, referral source, approximate location, and device/browser type). We also use Microsoft Clarity for anonymised session recordings and heatmaps to improve usability. These tools only run once you’ve given consent via the cookie banner, and only when the relevant tracking IDs are configured.",
         "You can change your choice at any time using the manage preferences control on this page or in the site footer.",
       ],
     },
@@ -1162,21 +1855,42 @@ export const landingOxford = {
   kicker: "Building Better Spaces",
   heading: "House Extensions in Oxford",
   strapline:
-    "From single-storey rear extensions to two-storey side returns – P&F manage everything through to the final build and interiors. Fixed quotes, no surprises.",
+    "From single-storey rear extensions to two-storey side returns, P&F manage everything through to the final build and interiors. Fixed quotes, no surprises.",
   cta: { label: `Free Planning Consultation - ${site.phone}`, href: site.phoneHref },
   usps: ["Fixed quotes, no surprises", "Free planning consultation"],
   handled: {
     heading: "What we handle",
     items: [
-      "Single-storey extensions",
-      "Multi-storey extensions",
-      "Planning & architectural drawings",
-      "Full build & project management",
+      {
+        label: "Single-storey extensions",
+        blurb:
+          "Open up your kitchen or living space with a well-designed rear extension.",
+        icon: "houseSingle" as const,
+      },
+      {
+        label: "Multi-storey extensions",
+        blurb: "Add bedrooms and living space, all in one project.",
+        icon: "houseMulti" as const,
+      },
+      {
+        label: "Planning & architectural drawings",
+        blurb: "We manage the full planning process so you don't have to.",
+        icon: "blueprint" as const,
+      },
+      {
+        label: "Full build & project management",
+        blurb: "One point of contact from first call to final reveal.",
+        icon: "clipboard" as const,
+      },
     ],
   },
   form: {
     heading: "Got a Project in Mind?",
     subheading: "Free Quote - Contact Form",
+  },
+  faq: {
+    heading: "Extension FAQs",
+    subheading: "Common Questions",
   },
   reviewsHeading: "What our customers say",
 };

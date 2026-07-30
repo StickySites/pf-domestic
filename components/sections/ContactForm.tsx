@@ -131,19 +131,19 @@ export default function ContactForm({
     <section className={tone === "band" ? "bg-band" : "bg-white"}>
       <Container
         className={`grid items-start gap-12 py-16 sm:py-20 ${
-          showImage ? "lg:grid-cols-2" : "max-w-2xl"
+          showImage ? "lg:grid-cols-2 lg:items-center" : "max-w-2xl"
         }`}
       >
         {showImage && (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold text-ink">{heading}</h2>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-md">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-lg shadow-md sm:aspect-[3/4]">
               <Image
                 src={contact.image}
                 alt="P&F Domestic Solutions team"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover object-[center_20%]"
               />
             </div>
           </div>

@@ -139,11 +139,11 @@ export default function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="!max-w-none flex flex-wrap items-center justify-center gap-6 !px-6 py-8 sm:!px-8 sm:justify-start lg:!px-10">
+        <Container className="!max-w-none flex flex-wrap items-center justify-center gap-4 !px-6 py-8 sm:gap-6 sm:!px-8 lg:!px-10">
           {accreditations.map((logo) => (
             <div
               key={logo.name}
-              className="flex h-14 w-24 items-center justify-center rounded-md bg-white p-2"
+              className="flex h-16 w-28 items-center justify-center rounded-md bg-white p-2.5 sm:h-20 sm:w-32"
             >
               <Image
                 src={logo.src}
@@ -159,8 +159,22 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <Container className="!max-w-none flex flex-col items-center justify-between gap-2 !px-6 py-4 text-xs text-white/60 sm:!px-8 sm:flex-row lg:!px-10">
-          <p>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          <p className="flex flex-row flex-wrap items-center justify-center gap-x-1.5 gap-y-1 sm:justify-start">
+            <span>
+              © {new Date().getFullYear()} {site.name}. All rights reserved.
+            </span>
+            <span aria-hidden="true">·</span>
+            <span>
+              Created and maintained by{" "}
+              <a
+                href="https://stkysites.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 transition-colors hover:text-accent"
+              >
+                StickySites
+              </a>
+            </span>
           </p>
           <p>Building with integrity, delivering with pride.</p>
         </Container>

@@ -49,17 +49,19 @@ export default function AboutContent() {
           <h2 className="text-center text-2xl font-bold text-ink sm:text-3xl">
             {about.whyChoose.heading}
           </h2>
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 sm:grid-cols-2">
+          <div className="mx-auto mt-10 flex max-w-4xl flex-col flex-wrap gap-6 sm:flex-row sm:justify-center">
             {about.whyChoose.points.map((point) => (
-              <div
+              <article
                 key={point.title}
-                className="rounded-lg border border-line bg-white p-6 shadow-sm"
+                className="rounded-lg border border-line border-t-[3px] border-t-accent bg-white px-6 py-7 shadow-sm transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-md sm:w-[calc(50%-0.75rem)]"
               >
-                <h3 className="text-lg font-bold text-ink">{point.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-body">
+                <h3 className="font-heading text-lg font-semibold text-ink">
+                  {point.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-body">
                   {point.body}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
           <p className="mx-auto mt-12 max-w-3xl text-center text-lg font-semibold text-ink">

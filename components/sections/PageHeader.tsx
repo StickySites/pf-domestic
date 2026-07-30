@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Container from "@/components/primitives/Container";
 
 type Props = {
   heading: string;
-  intro?: string;
+  intro?: ReactNode;
   image?: string;
 };
 

@@ -5,7 +5,8 @@ import { landingOxford, images } from "@/lib/data";
 
 export default function LandingHero() {
   return (
-    <section className="relative isolate flex min-h-[58vh] items-center overflow-hidden bg-navy-dark sm:min-h-[65vh] md:min-h-[72vh] lg:min-h-[80vh]">
+    // LandingHeader ≈ 4.5625rem (py-3 + h-12 logo + border-b) — fill remaining viewport
+    <section className="relative isolate flex min-h-[calc(100dvh-4.5625rem)] items-center overflow-hidden bg-navy-dark">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src={images.extension}
@@ -55,7 +56,7 @@ export default function LandingHero() {
             <Button
               href={landingOxford.cta.href}
               variant="solid"
-              className="w-full sm:w-auto"
+              className="w-full !px-8 !py-5 !text-base sm:w-auto sm:!px-10 sm:!py-5 sm:!text-lg"
             >
               {landingOxford.cta.label}
             </Button>

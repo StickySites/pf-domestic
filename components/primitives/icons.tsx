@@ -20,6 +20,40 @@ export function ChevronDown({ className = "" }: IconProps) {
   );
 }
 
+export function ChevronLeft({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        d="M12.79 5.23a.75.75 0 0 1-.02 1.06L8.94 10l3.83 3.71a.75.75 0 1 1-1.04 1.08l-4.39-4.25a.75.75 0 0 1 0-1.08l4.39-4.25a.75.75 0 0 1 1.06.02Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
+export function ChevronRight({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.06 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.39 4.25a.75.75 0 0 1 0 1.08l-4.39 4.25a.75.75 0 0 1-1.06-.02Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 export function Facebook({ className = "" }: IconProps) {
   return (
     <svg
@@ -142,6 +176,87 @@ export function Pin({ className = "" }: IconProps) {
       className={className}
     >
       <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+    </svg>
+  );
+}
+
+/** Single-storey house silhouette — landing “What we handle” */
+export function HouseSingle({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M3 11.5 12 4l9 7.5" />
+      <path d="M5 10.5V20h14v-9.5" />
+      <path d="M10 20v-5h4v5" />
+    </svg>
+  );
+}
+
+/** Two-storey house silhouette — landing “What we handle” */
+export function HouseMulti({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M3 11.5 12 4l9 7.5" />
+      <path d="M5 10.5V20h14v-9.5" />
+      <path d="M5 14.5h14" />
+      <path d="M10 20v-3h4v3" />
+    </svg>
+  );
+}
+
+/** Blueprint / drawings — landing “What we handle” */
+export function Blueprint({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M6 3h10l3 3v15H6V3Z" />
+      <path d="M16 3v3h3" />
+      <path d="M9 11h6M9 14h6M9 17h3" />
+    </svg>
+  );
+}
+
+/** Clipboard / project management — landing “What we handle” */
+export function ClipboardCheck({ className = "" }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1Z" />
+      <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <path d="m9 13 2 2 4-4" />
     </svg>
   );
 }
