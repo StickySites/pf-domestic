@@ -102,7 +102,7 @@ function assignUniqueHighlightImages(items: Highlight[]): string[] {
 }
 
 const cardClassName =
-  "group flex w-full flex-col overflow-hidden rounded-lg border border-line border-t-[3px] border-t-accent bg-white shadow-sm transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-md sm:w-[calc(50%-0.75rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2";
+  "group flex w-full flex-col rounded-lg border border-line border-t-[3px] border-t-accent bg-white shadow-sm transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-md sm:w-[calc(50%-0.75rem)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2";
 
 function HighlightCard({
   item,
@@ -117,7 +117,7 @@ function HighlightCard({
 
   const content = (
     <>
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative mx-6 mt-6 aspect-[16/10] overflow-hidden rounded-md">
         <Image
           src={image}
           alt=""
