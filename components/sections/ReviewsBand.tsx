@@ -26,11 +26,11 @@ export default function ReviewsBand() {
             </p>
           </div>
 
-          <ul className="grid w-full gap-3 sm:grid-cols-3 sm:gap-4">
+          <ul className="grid w-full min-w-0 gap-3 sm:grid-cols-3 sm:gap-4">
             {featured.map((review) => (
               <li
                 key={review.name}
-                className="flex flex-col items-center gap-1 text-center sm:items-start sm:text-left"
+                className="flex min-w-0 flex-col items-center gap-1 text-center sm:items-start sm:text-left"
               >
                 <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 sm:justify-start">
                   <span className="text-xs font-semibold text-ink">{review.name}</span>
@@ -39,7 +39,7 @@ export default function ReviewsBand() {
                     label={`${review.rating} out of 5 stars`}
                   />
                 </div>
-                <p className="line-clamp-2 text-xs leading-relaxed text-body">
+                <p className="line-clamp-2 min-w-0 break-words text-xs leading-relaxed text-body">
                   &ldquo;{review.text}&rdquo;
                 </p>
               </li>

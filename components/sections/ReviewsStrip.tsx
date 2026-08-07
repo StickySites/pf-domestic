@@ -139,7 +139,7 @@ export default function ReviewsStrip({ heading, tone = "band" }: Props) {
         </a>
 
         <div
-          className="relative mt-12 min-w-0"
+          className="relative mt-12 w-full min-w-0 overflow-x-hidden"
           role="region"
           aria-roledescription="carousel"
           aria-label="Customer reviews"
@@ -148,7 +148,7 @@ export default function ReviewsStrip({ heading, tone = "band" }: Props) {
             ref={scrollerRef}
             tabIndex={0}
             onKeyDown={onScrollerKeyDown}
-            className="flex min-w-0 items-start gap-6 overflow-x-auto overscroll-x-contain scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
+            className="flex w-full min-w-0 items-start gap-6 overflow-x-auto overscroll-x-contain scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] snap-x snap-mandatory focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 motion-reduce:scroll-auto [&::-webkit-scrollbar]:hidden"
             aria-label="Reviews"
           >
             {reviews.map((review) => (

@@ -9,7 +9,7 @@ export default function SiteLayout({
   return (
     <>
       <Header />
-      <main className="min-w-0 flex-1 overflow-x-clip">{children}</main>
+      <main className="w-full min-w-0 flex-1">{children}</main>
       <Footer />
     </>
   );

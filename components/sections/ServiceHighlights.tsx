@@ -117,7 +117,7 @@ function HighlightCard({
 
   const content = (
     <>
-      <div className="relative mx-6 mt-6 aspect-[16/10] overflow-hidden rounded-md">
+      <div className="relative mx-4 mt-6 aspect-[16/10] overflow-hidden rounded-md sm:mx-6">
         <Image
           src={image}
           alt=""

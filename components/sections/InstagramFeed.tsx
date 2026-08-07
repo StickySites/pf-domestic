@@ -27,8 +27,8 @@ export default function InstagramFeed({
           heading={heading}
         />
 
-        <div className="mt-10" aria-label="Instagram feed">
-          <div id={WIDGET_ID} />
+        <div className="mt-10 w-full min-w-0 max-w-full overflow-x-hidden" aria-label="Instagram feed">
+          <div id={WIDGET_ID} className="w-full max-w-full overflow-x-hidden" />
         </div>
 
         <div className="mt-10 flex justify-center">

@@ -18,16 +18,16 @@ export default function Header() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white shadow-sm">
-      <Container className="!max-w-none flex items-center justify-between gap-4 !pl-5 !pr-4 py-4 sm:!pl-6 sm:!pr-5 lg:!pl-8 lg:!pr-6">
-        <Link href="/" className="flex shrink-0 items-center" aria-label={site.name}>
+    <header className="sticky top-0 z-50 w-full border-b border-line bg-white shadow-sm">
+      <Container className="!max-w-none flex w-full items-center justify-between gap-4 !px-4 py-4 sm:!px-6 lg:!px-8">
+        <Link href="/" className="flex min-w-0 shrink items-center" aria-label={site.name}>
           <Image
             src={images.logo}
             alt={site.name}
             width={1275}
             height={453}
             priority
-            className="h-16 w-auto"
+            className="h-14 w-auto max-w-[min(100%,11.5rem)] object-contain object-left sm:h-16 sm:max-w-[14rem]"
           />
         </Link>
 
@@ -112,7 +112,7 @@ export default function Header() {
           className="border-t border-line bg-white lg:hidden"
           aria-label="Mobile"
         >
-          <Container className="!max-w-none flex flex-col !pl-5 !pr-4 py-2 sm:!pl-6 sm:!pr-5 lg:!pl-8 lg:!pr-6">
+          <Container className="!max-w-none flex w-full flex-col !px-4 py-2 sm:!px-6 lg:!px-8">
             {nav.primary.map((item) =>
               item.children ? (
                 <div key={item.href} className="border-b border-line/60">

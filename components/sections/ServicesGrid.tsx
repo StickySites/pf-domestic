@@ -23,7 +23,7 @@ export default function ServicesGrid({
         {intro && (
           <p className="mx-auto mt-4 max-w-3xl text-center text-body">{intro}</p>
         )}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid min-w-0 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <ServiceCard key={service.slug} service={service} />
           ))}
