@@ -50,7 +50,7 @@ export default function RootLayout({
     >
       {/* Chrome lives in the route-group layouts: app/(site) renders the full site
           header and footer; app/(landing) renders a distraction-free variant. */}
-      <body className="min-h-full flex flex-col bg-white">
+      <body className="flex min-h-full max-w-full flex-col overflow-x-clip bg-white">
         {children}
         <CookieConsentInit />
         <GoogleTagManager />
